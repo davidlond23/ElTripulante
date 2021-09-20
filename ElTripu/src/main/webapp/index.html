@@ -1,10 +1,103 @@
 <!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
 <html>
     <head>
-        <title>Start Page</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+
+        <title>Aeropuerto El Condor</title>
+        
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <div class="textoSuperior"><h1>PAGINA 1, versión 1</h1></div>
+        
+    <center>
+        <table class="encabezado">
+            <thead>
+                <tr style="height: 100px">
+                    <th style="width: 20%"> <a href="index.html"><img src="assets/img/mar.jpg" style="height: 100px; width: 150px;" ></a>  </th>
+                    <th style="width: 70%" class="Aeropuerto El Condor"> Aeropuerto El Condor </th>
+                    <th style="width: 10%"> <a href="index.html"> Login </a> </th>
+                    <label> Usuario </label>
+                            <input type="text" placeholder="ETBG" name="Usuario">
+                    <label> Contraseña </label>
+                            <input type="text" placeholder="1234" name="Contraseña">
+                </tr>
+            </thead>
+        </table>
+        <table border="solid" style="width: 100%" >
+            <thead>
+                <tr style="height: 200px">
+                    <td style="width: 20%"> 
+                                             
+                        <ol>
+                            <li> <h1>Aeropuerto el Condor</h1>
+                            </li>
+                            <li> <h3>Vuela alto, vuela lejos</h3> 
+                                <center> 
+                              <!--imagen-->
+                                    
+                            </center>
+                            </li>
+                            
+                           
+                        </ol>
+                  
+                    </td>
+                    <td style="width: 800%"> <h2>Encuentra el vuelo adecuado</h2> 
+                        <form action="index.html" method="POST">
+                            <center>
+                            <label> Ida </label>
+                            <input type="radio" value="Ida" name="Ida">
+                            <label> Ida y Vuelta </label>
+                            <input type="radio" value="Ida y Vuelta" name="Ida y Vuelta">
+                            <br>
+                            <label> Destino: </label>
+                            <input type="text" placeholder="Bogotá" name="Destino">
+                            <br>
+                            <label> Fecha de ida: </label>
+                            <input type="date" name="Fecha de ida">
+                            <br>
+                            <label> Fecha de regreso: </label>
+                            <input type="date" name="Fecha de regreso">
+                            <br>
+                            <label> Psajeros: </label>
+                            <br>
+                            <label> Adultos: </label>
+                            <input type="number" name="Adultos">
+                            <br>
+                            <label> Niños: </label>
+                            <input type="number" name="Niños">
+                            <br>
+                            </center>
+                            <div>
+                                                               
+                                <button> BUSCAR</button>
+                            </div>
+                        </form>
+                    </td>
+                </tr>
+            </thead>
+        </table>
+        <footer>
+            <table border="solid" style="width: 100%">
+                <thead>
+                    <tr style="height: 200px"> El Tripulante 2021, contacto:
+                        <!--imagenes de redes sociales-->
+                        
+                        
+                    </tr>
+                    
+                    
+                </thead>
+            </table>
+        </footer>
+        
+    </center>
+    
+    
     </body>
 </html>
