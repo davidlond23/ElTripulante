@@ -1,53 +1,102 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
-        <title>Reserva</title>
+        <title>Disponibilidad</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://panel.chatcompose.com/static/global/export/css\main.af14124f.css" rel="stylesheet">
+    
     </head>
     <body>
-        <div class="textoSuperior"><h1>Aeropuerto EL CONDOR</h1></div>
-        
+        <div class="textoSuperior">
+            <a href="index.html">
+                <img src="assets/img/Logo.jpg" width="800" height="150" alt="ElTripulante"> 
+            </a>
+        </div>
+        <a href="index.html">home</a>
+        <a href="reserva.html">Reserva</a>
+        <a href="test.html">Footer</a>
+         <div class="modal fade in" id="myModal" role="dialog" style="display: block; padding-right: 15px;">
+            <div class="modal-dialog"><!-- Modal content-->
+
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(function(){
+             $("#myModal").modal();
+            });
+        </script>
     <center>
-        <table border="solid" style="width: 100%" >
+        <br>
+        <table style="width: 95%" >
             <thead>
                 <tr style="height: 200px">
-                    <td style="width: 30%"></td>
-					<td style="width: 80%"> 
+                    <td style="width: 30%">
+                    <img src="assets/img/Isla.jpg" alt="ElTripulante"> 
+                    </td>
+                    <td style="width: 1%"></td>
+                    <td style="width: 79%"> 
                         <h2>Vuelos disponibles</h2> 
                         
-							<ul>
+			<ul>
                             <li> 
-								<h3>Vuelo 1</h3>
-								<p>IdVuelo      Aerolinea     Origen     Origen     Destino     Categoria     Precio</p>
-								<p>Fecha ida     Fecha regreso     Hora salida     Hora llegada     Sillas</p>
-								<h4>Precio<h4>
-							</li>	
+				<h3>Vuelo 1</h3>
+				<p>IdVuelo      Aerolinea     Origen     Origen     Destino     Categoria     Precio Fecha ida     Fecha regreso     Hora salida     Hora llegada     Sillas</p>
+				<h4>Precio</h4>
+                            </li>	
                             <li> 
-								<h3>Vuelo 2</h3>
-								<p>IdVuelo      Aerolinea     Origen     Origen     Destino     Categoria     Precio</p>
-								<p>Fecha ida     Fecha regreso     Hora salida     Hora llegada     Sillas</p>
-								<h4>Precio<h4>
+                                <h3>Vuelo 2</h3>
+				<p>IdVuelo      Aerolinea     Origen     Origen     Destino     Categoria     Precio</p>
+				<p>Fecha ida     Fecha regreso     Hora salida     Hora llegada     Sillas</p>
+				<h4>Precio</h4>
                             </li>
                             <li> 
-								<h3>Vuelo 3</h3>
-								<p>IdVuelo      Aerolinea     Origen     Origen     Destino     Categoria     Precio</p>
-								<p>Fecha ida     Fecha regreso     Hora salida     Hora llegada     Sillas</p>
-								<h4>Precio<h4>
+				<h3>Vuelo 3</h3>
+				<p>IdVuelo      Aerolinea     Origen     Origen     Destino     Categoria     Precio</p>
+				<p>Fecha ida     Fecha regreso     Hora salida     Hora llegada     Sillas</p>
+				<h4>Precio</h4>
                             </li>
-                        </ol>
+                        </ul>
                     </td>
         </table>
-        <footer>
-            <table style="width: 100%">
-                <thead>
-                    <tr style="height: 20px"> Software El Tripulante </tr>    
-                </thead>
-            </table>
-        </footer>
-        
+        </center>
+<footer data-role="footer"  class="page-footer font-small pt-5 footerColor">
+<center>
+    <div class="container-fluid text-center text-md-left">
+        <div>
+          <h5 class="text-uppercase font-weight-bold "> Síguenos</h5>
+
+          <ul class="list-unstyled">
+            <li>
+              <a class="navbar-brand aTextR" href="https://facebook.com">
+                <img src="assets/img/facebook.png" width="18" height="18" alt="ElTripulante"> Facebook
+              </a>
+            </li>
+            <li>
+              <a class="navbar-brand aTextR" href="https://twitter.com">
+                <img src="assets/img/gorjeo.png" width="18" height="18" alt="ElTripulante"> Twitter
+              </a>
+            </li>
+            <li>
+              <a class="navbar-brand aTextR" href="http://instagram.com">
+                <img src="assets/img/instagram.png" width="18" height="18" alt="ElTripulante"> Instagram
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    <div class="footer-copyright text-center py-1 footerColorCopy ">2021 -
+      <span class="corazon"> &#10084; </span> <a href="index.html">El Tripulante ©</a>
+    </div>
     </center>
-    
+  </footer>        
     
     </body>
 </html>
