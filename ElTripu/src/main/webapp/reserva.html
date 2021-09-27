@@ -38,12 +38,15 @@ and open the template in the editor.
             <tr>
                 <td style= "width: 250px; background-color: rgb(114, 197, 242)">Datos requeridos</td>
                 <td></td>
+                <td style= "font-family: 'Times New Roman', Times, serif; width: 250px; background-color: rgb(242, 114, 131)">Menor</td>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td><label for="name">Nombre completo</label></td>
                 <td><input type="text" id="name" name="userName" /></td>
+                <td><label for="childName">Nombre completo</label></td>
+                <td><input type="text" id="childName" name="userChildName" /></td>
             </tr>
             <tr>
                 <td>Tipo de identificación</td>
@@ -51,7 +54,9 @@ and open the template in the editor.
                     <option value="1">Cédula de ciudadanía</option> 
                     <option value="2">Cédula de extranjería</option> 
                     <option value="3">Pasaporte</option>
-                 </select></td>
+                    </select></td>
+                <td><label for="childIdNum">Número de identificación</label></td>
+                <td><input type="number" id="childIdNum" name="userChildId" /></td>
             </tr>
             <tr>
                 <td><label for="idNum">Número de identificación</label></td>
@@ -72,32 +77,14 @@ and open the template in the editor.
             <tr>
                 <td><label for="mail">Correo electrónico</label>
                 <td><input type="email" id="mail" name="userEmail" /></td>
+                <td style="text-align: right;">
+                    <button class="button"> Reservar </button>
+                </td>
             </tr>
         </tbody>
         </center>
     </table>
-    <table>
-        <center>
-        <thead>
-            <tr>
-                <td style= "font-family: 'Times New Roman', Times, serif; width: 250px; background-color: rgb(242, 114, 131)">Menor</td>
-                <td></td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><label for="childName">Nombre completo</label></td>
-                <td><input type="text" id="childName" name="userChildName" /></td>
-            </tr>
-            <tr>
-                <td><label for="childIdNum">Número de identificación</label></td>
-                <td><input type="number" id="childIdNum" name="userChildId" /></td>
-            </tr>
-        </tbody>
-        </center>
-
-    </table>
-
+    
     <footer class="footer pt-5">
         <center>
             <div>
