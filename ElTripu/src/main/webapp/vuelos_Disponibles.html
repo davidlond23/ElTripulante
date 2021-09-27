@@ -3,35 +3,27 @@
     <head>
         <title>Disponibilidad</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
           <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link href="https://panel.chatcompose.com/static/global/export/css\main.af14124f.css" rel="stylesheet">
-    
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="./estiloVuelosDisponibles.css" media="all" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
         <div class="textoSuperior">
             <a href="index.html">
-                <img src="assets/img/Logo.jpg" width="800" height="150" alt="ElTripulante"> 
+                <img src="assets/img/Logo.jpg" width= 100% height="300" alt="ElTripulante"> 
             </a>
         </div>
-        <a href="index.html">home</a>
-        <a href="reserva.html">Reserva</a>
-        <a href="test.html">Footer</a>
-         <div class="modal fade in" id="myModal" role="dialog" style="display: block; padding-right: 15px;">
-            <div class="modal-dialog"><!-- Modal content-->
-
-            </div>
+        <div class="icon-bar">
+            <a class="active" href="index.html"><i class="fa fa-home"></i></a> 
+            <a href="index.html"><i class="fa fa-search"></i></a> 
+            <a href="#"><i class="fa fa-envelope"></i></a> 
+            <a href="reserva.html"><i class="fa fa-globe"></i></a>
+            <a href="#"><i class="fa fa-trash"></i></a> 
         </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
-        <script type="text/javascript">
-            $(function(){
-             $("#myModal").modal();
-            });
-        </script>
     <center>
         <br>
         <table style="width: 95%" >
@@ -42,61 +34,78 @@
                     </td>
                     <td style="width: 1%"></td>
                     <td style="width: 79%"> 
-                        <h2>Vuelos disponibles</h2> 
+                        <h2 class="Text">Vuelos disponibles</h2> 
                         
-			<ul>
-                            <li> 
-				<h3>Vuelo 1</h3>
-				<p>IdVuelo      Aerolinea     Origen     Origen     Destino     Categoria     Precio Fecha ida     Fecha regreso     Hora salida     Hora llegada     Sillas</p>
-				<h4>Precio</h4>
-                            </li>	
-                            <li> 
-                                <h3>Vuelo 2</h3>
-				<p>IdVuelo      Aerolinea     Origen     Origen     Destino     Categoria     Precio</p>
-				<p>Fecha ida     Fecha regreso     Hora salida     Hora llegada     Sillas</p>
-				<h4>Precio</h4>
-                            </li>
-                            <li> 
-				<h3>Vuelo 3</h3>
-				<p>IdVuelo      Aerolinea     Origen     Origen     Destino     Categoria     Precio</p>
-				<p>Fecha ida     Fecha regreso     Hora salida     Hora llegada     Sillas</p>
-				<h4>Precio</h4>
-                            </li>
-                        </ul>
+                        <button class="accordion">Vuelo 1</button>
+                        <div class="panel">
+                            <p>IdVuelo      Aerolinea     Origen     Origen     Destino     Categoria     Precio Fecha ida     Fecha regreso     Hora salida     Hora llegada     Sillas</p>
+                            <h4>Precio</h4>
+                        </div>
+
+                        <button class="accordion">Vuelo 2</button>
+                        <div class="panel">
+                            <p>IdVuelo      Aerolinea     Origen     Origen     Destino     Categoria     Precio Fecha ida     Fecha regreso     Hora salida     Hora llegada     Sillas</p>
+                            <h4>Precio</h4>
+                        </div>
+
+                        <button class="accordion">Vuelo 3</button>
+                        <div class="panel">
+                            <p>IdVuelo      Aerolinea     Origen     Origen     Destino     Categoria     Precio Fecha ida     Fecha regreso     Hora salida     Hora llegada     Sillas</p>
+                            <h4>Precio</h4>
+                        </div>
+                        
+			
                     </td>
         </table>
         </center>
-<footer data-role="footer"  class="page-footer font-small pt-5 footerColor">
-<center>
-    <div class="container-fluid text-center text-md-left">
-        <div>
-          <h5 class="text-uppercase font-weight-bold "> Síguenos</h5>
+<footer class="footer pt-5">
+    <center>
+        <div ">
+            <div>
+              <h5> Síguenos</h5>
 
-          <ul class="list-unstyled">
-            <li>
-              <a class="navbar-brand aTextR" href="https://facebook.com">
-                <img src="assets/img/facebook.png" width="18" height="18" alt="ElTripulante"> Facebook
-              </a>
-            </li>
-            <li>
-              <a class="navbar-brand aTextR" href="https://twitter.com">
-                <img src="assets/img/gorjeo.png" width="18" height="18" alt="ElTripulante"> Twitter
-              </a>
-            </li>
-            <li>
-              <a class="navbar-brand aTextR" href="http://instagram.com">
-                <img src="assets/img/instagram.png" width="18" height="18" alt="ElTripulante"> Instagram
-              </a>
-            </li>
-          </ul>
+              <ul class="list-unstyled">
+                <li>
+                  <a class="navbar-brand aTextR" href="https://facebook.com">
+                    <img src="assets/img/facebook.png" width="18" height="18" alt="ElTripulante"> Facebook
+                  </a>
+                </li>
+                <li>
+                  <a class="navbar-brand aTextR" href="https://twitter.com">
+                    <img src="assets/img/gorjeo.png" width="18" height="18" alt="ElTripulante"> Twitter
+                  </a>
+                </li>
+                <li>
+                  <a class="navbar-brand aTextR" href="http://instagram.com">
+                    <img src="assets/img/instagram.png" width="18" height="18" alt="ElTripulante"> Instagram
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        <div>2021 -
+          <span class="corazon"> &#10084; </span> <a class="aTextR" href="index.html" >El Tripulante ©</a>
         </div>
-      </div>
-
-    <div class="footer-copyright text-center py-1 footerColorCopy ">2021 -
-      <span class="corazon"> &#10084; </span> <a href="index.html">El Tripulante ©</a>
-    </div>
     </center>
   </footer>        
+    
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+          acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+              panel.style.maxHeight = null;
+            } else {
+              panel.style.maxHeight = panel.scrollHeight + "px";
+            } 
+          });
+        }
+    </script>
     
     </body>
 </html>
