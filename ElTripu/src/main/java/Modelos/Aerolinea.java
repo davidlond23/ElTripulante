@@ -25,7 +25,7 @@ public class Aerolinea {
      //ENCAPSULAR 
 
     public int getid_aerolinea() {
-        return id_id_aerolinea;
+        return id_aerolinea;
     }
 
     public void setid_aerolinea(int id_aerolinea) {

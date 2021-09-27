@@ -12,7 +12,7 @@ package Modelos;
  */
 public class Usuario {
 
-}
+
 //Atributos
     
     int id_usuario;
@@ -113,3 +113,5 @@ public class Usuario {
     public void eliminarUsuario(){
         
     }
+ 
+}
