@@ -6,6 +6,9 @@
 
 package Modelos;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 /**
  *
  * @author 15db-0005
@@ -44,12 +47,49 @@ public class Aerolinea {
 
     public void crearAerolinea(){
         
+        Conexion objConector = new Conexion(); 
+        objConector.conectar();
+        
+        try{
+         String sql = "INSERT INTO aerolinea VALUES (?,?);";
+            PreparedStatement stmt; 
+            stmt = objConector.conn.prepareStatement(sql); 
+            stmt.setInt(1, this.id_aerolinea);
+            stmt.setString(2, this.desc_aerolinea);
+            stmt.execute(); 
+            
+            objConector.desconectar();
+            
+        } catch (Exception error) {
+            System.out.println("Error en modelo: "+error);
+        }
     }
     
     public void consultarAerolinea(){
         
     }
     
+    public ResultSet listarAerolinea(){
+        
+         Conexion objConector = new Conexion(); 
+        objConector.conectar();
+        
+        try {
+            String sql = "SELECT * FROM aerolinea; "; 
+            PreparedStatement stmt; 
+            stmt = objConector.conn.prepareStatement(sql); 
+            ResultSet consulta = stmt.executeQuery(); 
+            objConector.desconectar();
+            return consulta; 
+            
+        } catch (Exception error) {
+            System.out.println("Error modelo: "+ error);
+        }
+        
+        return null; 
+        
+        
+    }
     
     public void actualizarAerolinea(){
         

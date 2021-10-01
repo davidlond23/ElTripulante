@@ -5,6 +5,9 @@
  */
 package Modelos;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 /**
  *
  * @author User
@@ -45,6 +48,23 @@ public class Ciudad {
     }
  
     public void crearCiudad(){
+         Conexion objConector = new Conexion(); 
+        objConector.conectar();
+        
+        try{
+         String sql = "INSERT INTO ciudad VALUES (?,?,?);";
+            PreparedStatement stmt; 
+            stmt = objConector.conn.prepareStatement(sql); 
+            stmt.setInt(1, this.id_ciudad);
+            stmt.setString(2, this.desc_ciudad);
+            stmt.setInt(3, this. id_pais);
+            stmt.execute(); 
+            
+            objConector.desconectar();
+            
+        } catch (Exception error) {
+            System.out.println("Error en modelo: "+error);
+        }
         
     }
     
@@ -52,7 +72,23 @@ public class Ciudad {
         
     }
     
-    public void listarCiudad(){
+    public ResultSet listarCiudad(){
+         Conexion objConector = new Conexion(); 
+        objConector.conectar();
+        
+        try {
+            String sql = "SELECT * FROM ciudad; "; 
+            PreparedStatement stmt; 
+            stmt = objConector.conn.prepareStatement(sql); 
+            ResultSet consulta = stmt.executeQuery(); 
+            objConector.desconectar();
+            return consulta; 
+            
+        } catch (Exception error) {
+            System.out.println("Error modelo: "+ error);
+        }
+        
+        return null; 
         
     }
     
