@@ -59,3 +59,14 @@ INSERT INTO aerolinea VALUES (10, "Delta");
 INSERT INTO aerolinea VALUES (11, "Wingo");
 INSERT INTO aerolinea VALUES (12, "Regional Express Americas");
 
+
+INSERT INTO vuelo VALUES (1, 1, 5, '2021-12-24', null, '05:00:00', null, 1, 700000, 1, 3);
+INSERT INTO vuelo VALUES (2, 2, 14, '2021-12-24', null, '12:30:00', null, 3, 160000, 2, 1);
+INSERT INTO vuelo VALUES (3, 3, 19, '2021-12-24', '2021-12-25', '16:00:00', '11:30:00', 1, 699000, 5, 1);
+INSERT INTO vuelo VALUES (4, 4, 21, '2021-12-24', '2021-12-25', '22:30:00', '08:00:00', 2, 450000, 7, 3);
+INSERT INTO vuelo VALUES (5, 5, 26, '2021-12-24', '2021-12-25', '09:00:00', '15:30:00', 3, 708000, 5, 4);
+INSERT INTO vuelo VALUES (6, 6, 27, '2021-12-25', null, '06:00:00', null, 1, 750000, 10, 12);
+INSERT INTO vuelo VALUES (7, 7, 22, '2021-12-25', null, '13:30:00', null, 2, 965000, 3, 10);
+INSERT INTO vuelo VALUES (8, 8, 11, '2021-12-25', '2021-12-26', '17:00:00', '12:30:00', 3, 450000, 2, 11);
+INSERT INTO vuelo VALUES (9, 9, 10, '2021-12-25', '2021-12-26', '23:30:00', '09:00:00', 2, 836000, 3, 10);
+INSERT INTO vuelo VALUES (10, 10, 1, '2021-12-25', '2021-12-26', '10:00:00', '16:30:00', 1, 956000, 2, 11);

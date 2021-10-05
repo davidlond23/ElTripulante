@@ -68,24 +68,119 @@ public class Reserva {
 
 // METODOS
 
-    public void crearReserva(){
+   public void crearReserva(){
+        Conexion objConector = new Conexion(); 
+        objConector.conectar();
         
+        try {
+            
+
+            String sql = "INSERT INTO reserva VALUES (?,?,?,?,?);";
+            PreparedStatement stmt; 
+            stmt = objConector.conn.prepareStatement(sql); 
+            stmt.setInt(1, this.reserva);
+            stmt.setInt(2, this.id_usuario);
+            stmt.setInt (3, this.id_vuelo)
+            stmt.setString(4, this.hora_reserva);
+            stmt.setString(5, this.fecha_reserva);
+            
+            
+            stmt.execute(); 
+            
+            objConector.desconectar();
+            
+        } catch (Exception error) {
+            System.out.println("Error en modelo: "+error);
+        }
     }
     
-    public void consultarReserva(){
+    public ResultSet consultarReserva(){
+        Conexion objConector = new Conexion(); 
+        objConector.conectar();
         
+        try {
+            String sql = "SELECT * FROM reserva WHERE reserva = ?; "; 
+            PreparedStatement stmt; 
+            stmt = objConector.conn.prepareStatement(sql);
+            stmt.setInt(1, this.reserva);
+            ResultSet consulta = stmt.executeQuery(); 
+            objConector.desconectar();
+            return consulta; 
+            
+        } catch (Exception error) {
+            System.out.println("Error modelo: "+ error);
+        }
+        
+        return null; 
     }
     
-    public void listarReserva(){
+    public ResultSet listarReserva(){
+        Conexion objConector = new Conexion(); 
+        objConector.conectar();
         
+        try {
+            String sql = "SELECT * FROM reserva; "; 
+            PreparedStatement stmt; 
+            stmt = objConector.conn.prepareStatement(sql); 
+            ResultSet consulta = stmt.executeQuery(); 
+            objConector.desconectar();
+            return consulta; 
+            
+        } catch (Exception error) {
+            System.out.println("Error modelo: "+ error);
+        }
+        
+        return null; 
     }
     
     public void actualizarReserva(){
+        Conexion objConector = new Conexion(); 
+        objConector.conectar();
         
+        try {
+           
+            String sql = "UPDATE reserva SET " +
+                            "id_usuario = ?, "+
+                            "id_vuelo = ?, "+
+                            "hora_reserva = ? "+
+                            "fecha_reserva = ? "+
+                            "WHERE reserva = ?; "; 
+            PreparedStatement stmt; 
+            stmt = objConector.conn.prepareStatement(sql);
+            stmt.setInt(1, this.reserva);
+            stmt.setInt(2, this.id_usuario);
+            stmt.setInt(3, this.id_vuelo);
+            stmt.setString(4, this.hora_reserva);
+            stmt.setString(5, this.fecha_reserva);
+            
+            stmt.execute(); 
+            
+            objConector.desconectar();
+            
+        } catch (Exception error) {
+            System.out.println("Error en modelo: "+error);
+        }
     }
     
     public void eliminarReserva(){
+        Conexion objConector = new Conexion(); 
+        objConector.conectar();
         
+        try {
+            
+            String sql = "DELETE FROM reserva " +
+                            "WHERE reserva = ?; "; 
+            PreparedStatement stmt; 
+            stmt = objConector.conn.prepareStatement(sql); 
+            stmt.setInt(1, this.reserva);
+            
+            stmt.execute(); 
+            
+            objConector.desconectar();
+            
+        } catch (Exception error) {
+            System.out.println("Error en modelo: "+error);
+        }
     }
 }
 

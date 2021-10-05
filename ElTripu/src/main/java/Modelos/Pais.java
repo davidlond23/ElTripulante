@@ -39,12 +39,23 @@ public class Pais {
     }
  
  // METODOS    
-    public void consultarPais(){
+    public ResultSet listarPais(){
+        Conexion objConector = new Conexion();
+        objConector.conectar();
         
-    }
-    
-    public void listarPais(){
+        try {
+            String sql = "SELECT * FROM pais";
+            PreparedStatement stmt;
+            stmt = objConector.conn.prepareStatement(sql);
+            ResultSet Consulta = stmt.executeQuery();
+            objConector.desconectar();
+            return Consulta;
+            
+        } catch (Exception error) {
+            System.out.println("Error en el modelo: "+ error);
+//        }
         
+        return null;
     }
     
 }

@@ -41,26 +41,42 @@ public class Categoria {
     
     // METODOS
     
-     public void crearCategoria(){
+  public ResultSet consultarCategoria(){
+        Conexion objConector = new Conexion(); 
+        objConector.conectar();
         
+        try {
+            String sql = "SELECT * FROM Categoria WHERE idCategoria = ?; "; 
+            PreparedStatement stmt; 
+            stmt = objConector.conn.prepareStatement(sql);
+            stmt.setInt(1, this.idCategoria);
+            ResultSet consulta = stmt.executeQuery(); 
+            objConector.desconectar();
+            return consulta; 
+            
+        } catch (Exception error) {
+            System.out.println("Error en el ID de Categoria: "+ error);
+        }
+        
+        return null; 
     }
     
-    public void consultarCategoria(){
+    public ResultSet listarCategoria(){
+        Conexion objConector = new Conexion(); 
+        objConector.conectar();
         
-    }
-    
-    public void listarCategoria(){
+        try {
+            String sql = "SELECT * FROM Categoria; "; 
+            PreparedStatement stmt; 
+            stmt = objConector.conn.prepareStatement(sql); 
+            ResultSet consulta = stmt.executeQuery(); 
+            objConector.desconectar();
+            return consulta; 
+            
+        } catch (Exception error) {
+            System.out.println("Error modelo: "+ error);
+        }
         
+        return null; 
     }
-    
-    public void actualizarCategoria(){
-        
-    }
-    
-    public void eliminarCategoria(){
-        
-    }
-  
-
-    
 }
