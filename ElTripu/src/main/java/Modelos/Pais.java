@@ -38,11 +38,7 @@ public class Pais {
         this.desc_pais = desc_pais;
     }
  
- // METODOS
-        public void crearPais(){
-        
-    }
-    
+ // METODOS    
     public void consultarPais(){
         
     }
@@ -51,12 +47,5 @@ public class Pais {
         
     }
     
-    public void actualizarPais(){
-        
-    }
-    
-    public void eliminarPais(){
-        
-    }
-  
 }
+  

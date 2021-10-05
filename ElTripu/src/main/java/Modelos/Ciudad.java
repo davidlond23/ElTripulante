@@ -47,27 +47,7 @@ public class Ciudad {
         this.id_pais = id_pais;
     }
  
-    public void crearCiudad(){
-         Conexion objConector = new Conexion(); 
-        objConector.conectar();
         
-        try{
-         String sql = "INSERT INTO ciudad VALUES (?,?,?);";
-            PreparedStatement stmt; 
-            stmt = objConector.conn.prepareStatement(sql); 
-            stmt.setInt(1, this.id_ciudad);
-            stmt.setString(2, this.desc_ciudad);
-            stmt.setInt(3, this. id_pais);
-            stmt.execute(); 
-            
-            objConector.desconectar();
-            
-        } catch (Exception error) {
-            System.out.println("Error en modelo: "+error);
-        }
-        
-    }
-    
     public void consultarCiudad(){
         
     }
@@ -92,12 +72,4 @@ public class Ciudad {
         
     }
     
-    public void actualizarCiudad(){
-        
-    }
-    
-    public void eliminarCiudad(){
-        
-    }
-
 }

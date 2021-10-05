@@ -45,28 +45,11 @@ public class Aerolinea {
 
     // METODOS
 
-    public void crearAerolinea(){
-        
-        Conexion objConector = new Conexion(); 
-        objConector.conectar();
-        
-        try{
-         String sql = "INSERT INTO aerolinea VALUES (?,?);";
-            PreparedStatement stmt; 
-            stmt = objConector.conn.prepareStatement(sql); 
-            stmt.setInt(1, this.id_aerolinea);
-            stmt.setString(2, this.desc_aerolinea);
-            stmt.execute(); 
-            
-            objConector.desconectar();
-            
-        } catch (Exception error) {
-            System.out.println("Error en modelo: "+error);
-        }
-    }
-    
+   
     public void consultarAerolinea(){
-        
+     
+
+   
     }
     
     public ResultSet listarAerolinea(){
@@ -90,21 +73,7 @@ public class Aerolinea {
         
         
     }
-    
-    public void actualizarAerolinea(){
-        
-    }
-    
-    public void eliminarAerolinea(){
-        
-    }
-
-
-
-
-
-
-}
+ }
 
 
 
