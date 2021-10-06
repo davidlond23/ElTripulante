@@ -42,7 +42,8 @@ public class Pais {
     }
  
  // METODOS    
-    public ResultSet listarPais(){
+       
+        public ResultSet listarPais(){
         Conexion objConector = new Conexion();
         objConector.conectar();
         
@@ -51,16 +52,26 @@ public class Pais {
             PreparedStatement stmt;
             stmt = objConector.conn.prepareStatement(sql);
             ResultSet Consulta = stmt.executeQuery();
+            stmt.setInt(1, this.id_pais);
+            stmt.setString(1, this.desc_pais);
+     
+            stmt.execute();
+            
             objConector.desconectar();
+            
             return Consulta;
             
         } catch (Exception error) {
             System.out.println("Error en el modelo: "+ error);
-//        }
+        }
         
         return null;
     }
+}
     
-}
-}
+    
+    
+    
+    
+
   
