@@ -6,6 +6,10 @@
 
 package Modelos;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author 15db-0005
@@ -41,22 +45,45 @@ public class TipoiDocumento {
     }
 
     // METODOS
-
-    public void crearTipoiDocumento(){
+    
+    public ResultSet consultarTipoiDocumento(){
+        Conexion objConector = new Conexion(); 
+        objConector.conectar();
         
+        try {
+            String sql = "SELECT * FROM tipodocumento WHERE id_tipodocumento = ?; "; 
+            PreparedStatement stmt; 
+            stmt = objConector.conn.prepareStatement(sql);
+            stmt.setInt(1, this.id_tipodocumento);
+            ResultSet consulta = stmt.executeQuery(); 
+            objConector.desconectar();
+            return consulta; 
+            
+        } catch (SQLException error) {
+            System.out.println("Error modelo: "+ error);
+        }
+        
+        return null;
     }
     
-    public void consultarTipoiDocumento(){
-        
-    }
     
-    
-    public void actualizarTipoiDocumento(){
+    public ResultSet listarTipoiDocumento(){
+                Conexion objConector = new Conexion(); 
+        objConector.conectar();
         
-    }
-    
-    public void eliminarTipoiDocumento(){
+        try {
+            String sql = "SELECT * FROM tipodocumento; "; 
+            PreparedStatement stmt; 
+            stmt = objConector.conn.prepareStatement(sql); 
+            ResultSet consulta = stmt.executeQuery(); 
+            objConector.desconectar();
+            return consulta; 
+            
+        } catch (SQLException error) {
+            System.out.println("Error modelo: "+ error);
+        }
         
+        return null; 
     }
 
 

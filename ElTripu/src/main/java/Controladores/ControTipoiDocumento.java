@@ -6,8 +6,12 @@
 
 package Controladores;
 
+import Modelos.TipoiDocumento;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,6 +25,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name="ControTipoiDocumento", urlPatterns={"/ControTipoiDocumento"})
 public class ControTipoiDocumento extends HttpServlet {
    
+    TipoiDocumento objTipoiDocumento = new TipoiDocumento();
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      * @param request servlet request
@@ -80,5 +85,29 @@ public class ControTipoiDocumento extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+   
+     public ArrayList listar(){
+
+        try{
+            ResultSet consulta = objTipoiDocumento.listarTipoiDocumento();
+            ArrayList<TipoiDocumento> listaTipoDocumento = new ArrayList<>();
+
+            while(consulta.next()){
+
+                objTipoiDocumento = new TipoiDocumento ();
+                objTipoiDocumento. setid_tipodocumento(consulta.getInt(1));
+                objTipoiDocumento. setdesc_tipodoc(consulta.getString(2));
+                listaTipoDocumento.add(objTipoiDocumento);   
+
+            }
+            return listaTipoDocumento;
+            }
+               catch(SQLException error){
+            System.out.println("Error controlador:" + error );
+
+               }
+               return null;
+
+           }
 
 }

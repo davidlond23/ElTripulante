@@ -6,6 +6,10 @@
 
 package Modelos;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author 15db-0005
@@ -98,20 +102,125 @@ public class Usuario {
 // METODOS
 
     public void crearUsuario(){
+        Conexion objConector = new Conexion(); 
+        objConector.conectar();
         
+        try {
+
+            String sql = "INSERT INTO usuario VALUES (?,?,?,?,?,?,?,?);";
+            PreparedStatement stmt; 
+            stmt = objConector.conn.prepareStatement(sql); 
+            stmt.setInt(1, this.id_usuario);
+            stmt.setString(2, this.nombre_usuario);
+            stmt.setInt(3, this.tipodoc_usuario);
+            stmt.setString(4, this.numdoc_usuario);
+            stmt.setString(5, this.telefono_usuario);
+            stmt.setString(6, this.correo_usuario);
+            stmt.setString(7, this.fecnac_usuario);
+            stmt.setInt(8, this.id_menor);
+            
+            stmt.execute(); 
+            
+            objConector.desconectar();
+            
+        } catch (SQLException error) {
+            System.out.println("Error en modelo: "+error);
+        }
     }
     
-    public void consultarUsuario(){
+    public ResultSet consultarUsuario(){
+        Conexion objConector = new Conexion(); 
+        objConector.conectar();
         
+        try {
+            String sql = "SELECT * FROM usuario WHERE id_usuario = ?; "; 
+            PreparedStatement stmt; 
+            stmt = objConector.conn.prepareStatement(sql);
+            stmt.setInt(1, this.id_usuario);
+            ResultSet consulta = stmt.executeQuery(); 
+            objConector.desconectar();
+            return consulta; 
+            
+        } catch (SQLException error) {
+            System.out.println("Error modelo: "+ error);
+        }
+        
+        return null; 
     }
     
+    public ResultSet listarUsuario(){
+        Conexion objConector = new Conexion(); 
+        objConector.conectar();
+        
+        try {
+            String sql = "SELECT * FROM Usuario; "; 
+            PreparedStatement stmt; 
+            stmt = objConector.conn.prepareStatement(sql); 
+            ResultSet consulta = stmt.executeQuery(); 
+            objConector.desconectar();
+            return consulta; 
+            
+        } catch (Exception error) {
+            System.out.println("Error modelo: "+ error);
+        }
+        
+        return null; 
+    }
     
     public void actualizarUsuario(){
-        
+         Conexion objConector = new Conexion(); 
+        objConector.conectar();
+
+        try {
+            
+            String sql = "UPDATE usuario SET " +
+                            "nombre_usuario = ?, "+
+                            "tipodoc_usuario = ?, "+
+                            "numdoc_usuario = ?, "+
+                            "telefono_usuario = ? "+
+                            "correo_usuario = ? "+
+                            "fecnac_usuario = ? "+
+                            "id_menor = ? "+
+                            "WHERE id_usuario = ?; "; 
+            PreparedStatement stmt; 
+            stmt = objConector.conn.prepareStatement(sql); 
+            stmt.setInt(8, this.id_usuario);
+            stmt.setString(1, this.nombre_usuario);
+            stmt.setInt(2, this.tipodoc_usuario);
+            stmt.setString(3, this.numdoc_usuario);
+            stmt.setString(4, this.telefono_usuario);
+            stmt.setString(5, this.correo_usuario);
+            stmt.setString(6, this.fecnac_usuario);
+            stmt.setInt(7, this.id_menor);
+            
+            stmt.execute(); 
+            
+            objConector.desconectar();
+            
+        } catch (SQLException error) {
+            System.out.println("Error en modelo: "+error);
+        }
     }
     
     public void eliminarUsuario(){
+        Conexion objConector = new Conexion(); 
+        objConector.conectar();
         
+        try {
+            
+            String sql = "DELETE FROM usuario " +
+                            "WHERE id_usuario = ?; "; 
+            PreparedStatement stmt; 
+            stmt = objConector.conn.prepareStatement(sql); 
+            stmt.setInt(1, this.id_usuario);
+            
+            stmt.execute(); 
+            
+            objConector.desconectar();
+            
+        } catch (SQLException error) {
+            System.out.println("Error en modelo: "+error);
+        }
     }
  
 }
