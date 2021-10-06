@@ -5,8 +5,11 @@
  */
 package Controladores;
 
+import Modelos.Ciudad;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "ControladorCiudad", urlPatterns = {"/ControladorCiudad"})
 public class ControladorCiudad extends HttpServlet {
 
+    Ciudad objCiudad = new Ciudad(); 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -85,4 +89,26 @@ public class ControladorCiudad extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
+public ArrayList listar(){
+ try{
+     ResultSet consulta = objCiudad.listarCiudad();
+     ArrayList<Ciudad> listaCiudad = new ArrayList<>();
+
+     while(consulta.next()){
+         objCiudad = new Ciudad ();
+         objCiudad.setId_ciudad(consulta.getInt(1));
+         objCiudad.setDesc_ciudad(consulta.getString(2));
+	 objCiudad.setId_pais(consulta.getInt(3));
+         listaCiudad.add(objCiudad);   
+
+     }
+     return listaCiudad;
+ }
+ catch(Exception error){
+     System.out.println("Error controlador:" + error );
+
+ }
+return null;
+
+}
 }

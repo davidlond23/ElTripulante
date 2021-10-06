@@ -1,3 +1,10 @@
+<%-- 
+    Document   : index
+    Created on : 5/10/2021, 07:13:39 PM
+    Author     : User
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
