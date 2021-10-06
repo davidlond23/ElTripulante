@@ -5,6 +5,9 @@
  */
 package Modelos;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 /**
  *
  * @author User
@@ -68,24 +71,131 @@ public class Menor {
     
     // METODOS
     
-    public void crearMenor(){
+   
+        public void crearMenor(){
+        Conexion objConector = new Conexion();
+        objConector.conectar();
+        
+        try {
+            String sql = "INSERT INTO menor VALUES (?, ?, ?, ?, ?);";
+            PreparedStatement stmt;
+            stmt = objConector.conn.prepareStatement(sql);
+            stmt.setInt(1, this.id_menor);
+            stmt.setInt(2, this.id_usuario);
+            stmt.setInt(3, this.tipodoc_menor);
+            stmt.setString(4, this.numdoc_menor);
+            stmt.setString(5, this.fecnac_menor);
+                    
+            stmt.execute();
+            
+            objConector.desconectar();
+            
+        } catch (Exception error) {
+            System.out.println("Error en modelo: "+ error);
+        }
         
     }
     
-    public void consultarMenor(){
+    public ResultSet consultarMenor(){
+        Conexion objConector = new Conexion(); 
+        objConector.conectar();
         
+        try {
+            String sql = "SELECT * FROM menor WHERE id_menor = ?; "; 
+            PreparedStatement stmt; 
+            stmt = objConector.conn.prepareStatement(sql);
+            stmt.setInt(1, this.id_menor);
+            ResultSet consulta = stmt.executeQuery(); 
+            objConector.desconectar();
+            return consulta; 
+            
+        } catch (Exception error) {
+            System.out.println("Error en modelo: "+ error);
+        }
+        
+        return null;
     }
     
-    public void listarMenor(){
+    public ResultSet listarMenor(){
+        Conexion objConector = new Conexion();
+        objConector.conectar();
         
+        try {
+            String sql = "SELECT * FROM menor";
+            PreparedStatement stmt;
+            stmt = objConector.conn.prepareStatement(sql);
+            ResultSet Consulta = stmt.executeQuery();
+            stmt.setInt(1, this.id_menor);
+            stmt.setInt(2, this.id_usuario);
+            stmt.setInt(3, this.tipodoc_menor);
+            stmt.setString(4, this.numdoc_menor);
+            stmt.setString(5, this.fecnac_menor);
+            
+            stmt.execute();
+                    
+            objConector.desconectar();
+            
+            return Consulta;
+                        
+        } catch (Exception error) {
+            System.out.println("Error en modelo: "+ error);
+        }
+        return null;
     }
     
+   
     public void actualizarMenor(){
+        Conexion objConector = new Conexion();
+        objConector.conectar();
         
+        try {
+            
+            String sql = "UPDATE menor SET" +
+                    "id_menor = ?, " +
+                    "id_usuario = ?, " +
+                    "tipodoc_menor = ?, " +
+                    "numdoc_menor = ?, " +
+                    "fecnac_menor = ?, " +
+                    "WHERE menor = ?, ";
+            PreparedStatement stmt;
+            stmt = objConector.conn.prepareStatement(sql);
+            stmt.setInt(1, this.id_menor);
+            stmt.setInt(2, this.id_usuario);
+            stmt.setInt(3, this.tipodoc_menor);
+            stmt.setString(4, this.numdoc_menor);
+            stmt.setString(5, this.fecnac_menor);
+            
+            stmt.execute();
+            
+            objConector.desconectar();
+            
+        } catch (Exception error) {
+            System.out.println("Error en modelo: "+ error);
+        }
     }
     
     public void eliminarMenor(){
         
+        Conexion objConector = new Conexion(); 
+        objConector.conectar();
+        
+        try {
+            
+            String sql = "DELETE FROM menor " +
+                            "WHERE id_menor = ?; "; 
+            PreparedStatement stmt; 
+            stmt = objConector.conn.prepareStatement(sql); 
+            stmt.setInt(1, this.id_menor);
+            
+            stmt.execute(); 
+            
+            objConector.desconectar();
+            
+        } catch (Exception error) {
+            System.out.println("Error en modelo: "+ error);
+        }
     }
+    
+    
     
 }
