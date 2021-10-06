@@ -64,12 +64,31 @@ public class Aerolinea {
             return consulta; 
             
         } catch (Exception error) {
-            System.out.println("Error modelo: "+ error);
+            System.out.println("Error modelo aerolínea: "+ error);
         }
         
         return null; 
         
         
+    }
+    public ResultSet consultarAerolinea(){
+        Conexion objConector = new Conexion(); 
+        objConector.conectar();
+        
+        try {
+            String sql = "SELECT * FROM aerolinea WHERE id_aerolinea = ?; "; 
+            PreparedStatement stmt; 
+            stmt = objConector.conn.prepareStatement(sql);
+            stmt.setInt(1, this.id_aerolinea);
+            ResultSet consulta = stmt.executeQuery(); 
+            objConector.desconectar();
+            return consulta; 
+            
+        } catch (Exception error) {
+            System.out.println("Error en el ID de Aerolínea: "+ error);
+        }
+        
+        return null; 
     }
  }
 

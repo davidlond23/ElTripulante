@@ -48,9 +48,7 @@ public class Ciudad {
     }
  
         
-    public void consultarCiudad(){
-        
-    }
+   
     
     public ResultSet listarCiudad(){
          Conexion objConector = new Conexion(); 
@@ -65,11 +63,30 @@ public class Ciudad {
             return consulta; 
             
         } catch (Exception error) {
-            System.out.println("Error modelo: "+ error);
+            System.out.println("Error modelo de Ciudad: "+ error);
         }
         
         return null; 
         
+    }
+    public ResultSet consultarCiudad(){
+        Conexion objConector = new Conexion(); 
+        objConector.conectar();
+        
+        try {
+            String sql = "SELECT * FROM ciudad WHERE id_ciudad= ?; "; 
+            PreparedStatement stmt; 
+            stmt = objConector.conn.prepareStatement(sql);
+            stmt.setInt(1, this.id_ciudad);
+            ResultSet consulta = stmt.executeQuery(); 
+            objConector.desconectar();
+            return consulta; 
+            
+        } catch (Exception error) {
+            System.out.println("Error en el ID de Ciudad: "+ error);
+        }
+        
+        return null; 
     }
 
 }
