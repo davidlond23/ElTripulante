@@ -1,3 +1,5 @@
+package Modelos;
+
 
 import Modelos.Conexion;
 import java.sql.PreparedStatement;
@@ -188,10 +190,3 @@ public class Reserva {
         }
     }
 }
-
-    
-    
-    
-    
-    
-

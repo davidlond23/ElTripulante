@@ -52,10 +52,10 @@ Reserva objReserva = new Reserva();
                 String fecha_reserva = request.getParameter("fecha_reserva"); 
                 
                 objReserva.setReserva(reserva);
-                objReserva.setId_Reserva(id_reserva);
-                objReserva.setId_Vuelo(id_vuelo);
-                objReserva.setHora_Reserva(hora_reserva);
-                objReserva.setFecha_Reserva(fecha_reserva);
+                objReserva.setId_usuario(id_usuario);
+                objReserva.setId_vuelo(id_vuelo);
+                objReserva.setHora_reserva(hora_reserva);
+                objReserva.setFecha_reserva(fecha_reserva);
                 
                 objReserva.crearReserva();
                 
@@ -75,10 +75,10 @@ Reserva objReserva = new Reserva();
                 String fecha_reserva = request.getParameter("fecha_reserva"); 
 
                 objReserva.setReserva(reserva);
-                objReserva.setId_Reserva(id_reserva);
-                objReserva.setId_Vuelo(id_vuelo);
-                objReserva.setHora_Reserva(hora_reserva);
-                objReserva.setFecha_Reserva(fecha_reserva);              
+                objReserva.setId_usuario(id_usuario);
+                objReserva.setId_vuelo(id_vuelo);
+                objReserva.setHora_reserva(hora_reserva);
+                objReserva.setFecha_reserva(fecha_reserva);              
 
               
                 objReserva.actualizarReserva();
@@ -121,13 +121,13 @@ Reserva objReserva = new Reserva();
             ResultSet reserva = objReserva.listarReserva(); 
             ArrayList<Reserva> listaReserva = new ArrayList<>(); 
             
-            while(consulta.next()){
+            while(reserva.next()){
                 objReserva = new Reserva(); 
-                objReserva.setRserva(consulta.getInt(1));
-                objReserva.setId_Reserva(consulta.getInt(2));
-                objReserva.setId_Vuelo(consulta.getInt(3));
-                objReserva.setHora_Reserva(consulta.getString(4));
-                objReserva.setFecha_Reserva(consulta.getString(5));
+                objReserva.setReserva(reserva.getInt(1));
+                objReserva.setId_usuario(reserva.getInt(2));
+                objReserva.setId_vuelo(reserva.getInt(3));
+                objReserva.setHora_reserva(reserva.getString(4));
+                objReserva.setFecha_reserva(reserva.getString(5));
                 listaReserva.add(objReserva); 
             }
             return listaReserva; 
@@ -146,11 +146,11 @@ Reserva objReserva = new Reserva();
             
             while(consulta.next()){
                 objReserva = new Reserva(); 
-                objReserva.setRserva(consulta.getInt(1));
-                objReserva.setId_Reserva(consulta.getInt(2));
-                objReserva.setId_Vuelo(consulta.getInt(3));
-                objReserva.setHora_Reserva(consulta.getString(4));
-                objReserva.setFecha_Reserva(consulta.getString(5));
+                objReserva.setReserva(consulta.getInt(1));
+                objReserva.setId_usuario(consulta.getInt(2));
+                objReserva.setId_vuelo(consulta.getInt(3));
+                objReserva.setHora_reserva(consulta.getString(4));
+                objReserva.setFecha_reserva(consulta.getString(5));
                 listaReserva.add(objReserva); 
 
 
