@@ -1,3 +1,8 @@
+
+import Modelos.Conexion;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -80,7 +85,7 @@ public class Reserva {
             stmt = objConector.conn.prepareStatement(sql); 
             stmt.setInt(1, this.reserva);
             stmt.setInt(2, this.id_usuario);
-            stmt.setInt (3, this.id_vuelo)
+            stmt.setInt (3, this.id_vuelo);
             stmt.setString(4, this.hora_reserva);
             stmt.setString(5, this.fecha_reserva);
             

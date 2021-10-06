@@ -5,6 +5,9 @@
  */
 package Modelos;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 /**
  *
  * @author User
@@ -58,5 +61,6 @@ public class Pais {
         return null;
     }
     
+}
 }
   

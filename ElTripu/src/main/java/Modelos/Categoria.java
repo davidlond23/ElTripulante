@@ -5,6 +5,9 @@
  */
 package Modelos;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 /**
  *
  * @author User
@@ -49,7 +52,7 @@ public class Categoria {
             String sql = "SELECT * FROM Categoria WHERE idCategoria = ?; "; 
             PreparedStatement stmt; 
             stmt = objConector.conn.prepareStatement(sql);
-            stmt.setInt(1, this.idCategoria);
+            stmt.setInt(1, this.id_categoria);
             ResultSet consulta = stmt.executeQuery(); 
             objConector.desconectar();
             return consulta; 

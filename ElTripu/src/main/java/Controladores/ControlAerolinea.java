@@ -6,8 +6,12 @@
 
 package Controladores;
 
+
+import Modelos.Aerolinea;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,7 +24,9 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name="ControlAerolinea", urlPatterns={"/ControlAerolinea"})
 public class ControlAerolinea extends HttpServlet {
-   
+ 
+    
+      Aerolinea objAerolinea = new Aerolinea(); 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      * @param request servlet request
@@ -81,4 +87,27 @@ public class ControlAerolinea extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
+    
+    public ArrayList listar(){
+
+ try{
+     ResultSet consulta = objAerolinea.listarAerolinea();
+     ArrayList<Aerolinea> listaAerolinea = new ArrayList<>();
+
+     while(consulta.next()){
+         objAerolinea = new Aerolinea ();
+         objAerolinea. setid_aerolinea(consulta.getInt(1));
+         objAerolinea. setdesc_aerolinea(consulta.getString(2));
+         listaAerolinea.add(objAerolinea);   
+
+     }
+     return listaAerolinea;
+ }
+ catch(Exception error){
+     System.out.println("Error controlador:" + error );
+
+ }
+return null;
+
+}
 }
