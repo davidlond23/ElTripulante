@@ -46,7 +46,7 @@ public class Aerolinea {
     // METODOS
 
    
-    public void consultarCiudad(){
+    public void consultarAerolinea(){
         
     }
     

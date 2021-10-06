@@ -5,13 +5,13 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!DOCTYPE jsp>
 <!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html lang="es">
+<jsp lang="es">
     <head>
         <title>Aeropuerto El Cóndor</title>
         <meta charset="UTF-8">
@@ -34,16 +34,16 @@ and open the template in the editor.
         </div>            
             
             <div>
-                <a href="index.html">
+                <a href="index.jsp">
                     <img src="assets/img/Logo.jpg" width= 100% height="300" alt="ElTripulante"> 
                 </a>
             </div>
             <div class="icon-bar">
-                <a class="active" href="index.html"><i class="fa fa-home"></i></a> 
-                <a href="vuelos_Disponibles.html"><i class="fa fa-search"></i></a> 
-                <a href="index.html"><i class="fa fa-money"></i></a> 
-                <a href="reserva.html"><i class="fa fa-globe"></i></a>
-                <a href="index.html"><i class="fa fa-plane"></i></a> 
+                <a class="active" href="index.jsp"><i class="fa fa-home"></i></a> 
+                <a href="vuelos_Disponibles.jsp"><i class="fa fa-search"></i></a> 
+                <a href="index.jsp"><i class="fa fa-money"></i></a> 
+                <a href="reserva.jsp"><i class="fa fa-globe"></i></a>
+                <a href="index.jsp"><i class="fa fa-plane"></i></a> 
             </div>
             
             <table style="width: 100%" >
@@ -60,7 +60,7 @@ and open the template in the editor.
                     </td>
                     
                     <td style="width:300%"> <center><h3>Encuentra el vuelo adecuado</h3> </center>
-                    <form action="index.html" method="POST">
+                    <form action="index.jsp" method="POST">
                             <br>
                             <center>
                             <label> Ida </label>
@@ -94,7 +94,7 @@ and open the template in the editor.
                             <div>
                             <center>                               
                             <button> BUSCAR</button>
-                            <a href="vuelos_Disponibles.html"></a>
+                            <a href="vuelos_Disponibles.jsp"></a>
                             </center>
                             </div>
                     </form>
@@ -120,9 +120,9 @@ and open the template in the editor.
                 </div>
 
                 <div>2021 -
-                   <a class="aTextR" href="index.html" >El Tripulante ©</a>
+                   <a class="aTextR" href="index.jsp" >El Tripulante ©</a>
                 </div>
             </center>
         </footer>
     </body>
-</html>
+</jsp>

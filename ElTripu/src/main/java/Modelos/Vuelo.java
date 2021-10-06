@@ -120,23 +120,31 @@ public class Vuelo {
     
     // METODOS
 
-    public void crearVuelo(){
-        
-    }
-    
+
     public void consultarVuelo(){
         
     }
     
-    public void listarVuelo(){
+    public ResultSet listarVuelo(){
+        
+         Conexion objConector = new Conexion(); 
+        objConector.conectar();
+        
+        try {
+            String sql = "SELECT * FROM vuelo; "; 
+            PreparedStatement stmt; 
+            stmt = objConector.conn.prepareStatement(sql); 
+            ResultSet consulta = stmt.executeQuery(); 
+            objConector.desconectar();
+            return consulta; 
+            
+        } catch (Exception error) {
+            System.out.println("Error modelo: "+ error);
+        }
+        
+        return null; 
+        
         
     }
-    
-    public void actualizarVuelo(){
-        
-    }
-    
-    public void eliminarVuelo(){
-        
-    }
+       
 }

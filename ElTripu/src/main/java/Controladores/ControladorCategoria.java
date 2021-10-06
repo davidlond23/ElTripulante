@@ -5,8 +5,11 @@
  */
 package Controladores;
 
+import Modelos.Categoria;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "ControladorCategoria", urlPatterns = {"/ControladorCategoria"})
 public class ControladorCategoria extends HttpServlet {
 
+    Categoria objCategoria = new Categoria();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -32,8 +36,10 @@ public class ControladorCategoria extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+            
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -84,5 +90,53 @@ public class ControladorCategoria extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+ public ArrayList listar(){
+
+ try{
+     ResultSet consulta = objCategoria.listarCategoria();
+     ArrayList<Categoria> listaCategoria = new ArrayList<>();
+
+     while(consulta.next()){
+
+         objCategoria = new Categoria ();
+         objCategoria. setid_categoria(consulta.getInt(1));
+         objCategoria. setdesc_categoria(consulta.getString(2));
+         listaCategoria.add(objCategoria);   
+
+     }
+     return listaCategoria;
+     }
+        catch(Exception error){
+     System.out.println("Error controlador:" + error );
+
+        }
+        return null;
+
+    }
+/**------------------*/
+
+public ArrayList consultar(int id_categoria){
+        try{
+            objCategoria.setid_categoria(id_categoria);
+            ResultSet consulta = objCategoria.consultarCategoria(); 
+            ArrayList<Categoria> listaCategoria = new ArrayList<>(); 
+            
+            while(consulta.next()){
+                objCategoria = new Categoria(); 
+                objCategoria.setid_categoria(consulta.getInt(1));
+                objCategoria.setdesc_categoria(consulta.getString(2));
+                listaCategoria.add(objCategoria); 
+            }
+            return listaProducto; 
+        }
+        catch(Exception error){
+            System.out.println("ERROR: "+error);
+        }  
+        return null; 
+    }
+    
+
+
+
 
 }
