@@ -39,18 +39,9 @@ public class ControladorCategoria extends HttpServlet {
 
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ControladorCategoria</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ControladorCategoria at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
+                       
+        
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -90,17 +81,21 @@ public class ControladorCategoria extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
- public ArrayList listar(){
+ 
+        }
+    }
+
+public ArrayList listar(){
 
  try{
-     ResultSet consulta = objCategoria.listarCategoria();
+     ResultSet consulta = objCategoria.listarcategoria();
      ArrayList<Categoria> listaCategoria = new ArrayList<>();
 
      while(consulta.next()){
 
          objCategoria = new Categoria ();
-         objCategoria. setid_categoria(consulta.getInt(1));
-         objCategoria. setdesc_categoria(consulta.getString(2));
+         objCategoria. setId_categoria(consulta.getInt(1));
+         objCategoria. setDesc_categoria(consulta.getString(2));
          listaCategoria.add(objCategoria);   
 
      }
@@ -117,17 +112,17 @@ public class ControladorCategoria extends HttpServlet {
 
 public ArrayList consultar(int id_categoria){
         try{
-            objCategoria.setid_categoria(id_categoria);
+            objCategoria.setId_categoria(id_categoria);
             ResultSet consulta = objCategoria.consultarCategoria(); 
             ArrayList<Categoria> listaCategoria = new ArrayList<>(); 
             
             while(consulta.next()){
                 objCategoria = new Categoria(); 
-                objCategoria.setid_categoria(consulta.getInt(1));
-                objCategoria.setdesc_categoria(consulta.getString(2));
+                objCategoria.setId_categoria(consulta.getInt(1));
+                objCategoria.setDesc_categoria(consulta.getString(2));
                 listaCategoria.add(objCategoria); 
             }
-            return listaProducto; 
+            return listaCategoria; 
         }
         catch(Exception error){
             System.out.println("ERROR: "+error);

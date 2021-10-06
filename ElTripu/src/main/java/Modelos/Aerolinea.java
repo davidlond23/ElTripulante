@@ -46,9 +46,7 @@ public class Aerolinea {
     // METODOS
 
    
-    public void consultarAerolinea(){
-        
-    }
+    
     
     public ResultSet listarAerolinea(){
         

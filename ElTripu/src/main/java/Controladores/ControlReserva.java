@@ -37,20 +37,13 @@ Reserva objReserva = new Reserva();
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
+        
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ControlReserva</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ControlReserva at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
-if(accion.equals("Insertar")){
+        String accion = request.getParameter("btnInsertar Reserva");    
+            
+            if(accion.equals("Insertar")){
                 
                 int reserva = Integer.parseInt(request.getParameter("reserva"));
                 int id_usuario = Integer.parseInt(request.getParameter("id_usuario"));
@@ -72,7 +65,7 @@ if(accion.equals("Insertar")){
                                  "  window.location.href='reserva.jsp'; "+
                                  "</script> </body> </html>"; 
                 
-                out.println(mensaje); 
+                System.out.println(mensaje); 
             }
             else if (accion.equals("Actualizar")){
                 int reserva = Integer.parseInt(request.getParameter("reserva"));
@@ -112,7 +105,7 @@ if(accion.equals("Insertar")){
                                  "  window.location.href='reserva.jsp'; "+
                                  "</script> </body> </html>"; 
                 
-               out.println(mensaje); 
+               System.out.println(mensaje); 
             }
             
             
@@ -162,7 +155,7 @@ if(accion.equals("Insertar")){
 
 
             }
-            return listaProducto; 
+            return listaReserva; 
         }
         catch(Exception error){
             System.out.println("ERROR: "+error);
