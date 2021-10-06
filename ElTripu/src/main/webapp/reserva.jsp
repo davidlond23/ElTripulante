@@ -32,7 +32,7 @@ and open the template in the editor.
         </div>
         <div class="icon-bar">
                 <a class="active" href="index.jsp"><i class="fa fa-home"></i></a> 
-                <a href="vuelos_Disponibles.jsp"><i class="fa fa-search"></i></a> 
+                <a href="vuelos_disponibles.jsp"><i class="fa fa-search"></i></a> 
                 <a href="index.jsp"><i class="fa fa-money"></i></a> 
                 <a href="reserva.jsp"><i class="fa fa-globe"></i></a>
                 <a href="index.jsp"><i class="fa fa-plane"></i></a> 

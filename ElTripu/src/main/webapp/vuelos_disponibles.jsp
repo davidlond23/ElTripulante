@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE jsp>
-<jsp lang="es">
+
     <head>
         <title>Disponibilidad</title>
         <meta charset="UTF-8">
@@ -106,4 +106,3 @@
     </script>
     
     </body>
-</jsp>
