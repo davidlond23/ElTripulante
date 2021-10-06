@@ -5,8 +5,11 @@
  */
 package Controladores;
 
+import Modelos.Pais;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,6 +22,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "ControladorPais", urlPatterns = {"/ControladorPais"})
 public class ControladorPais extends HttpServlet {
+    
+    Pais objPais = new Pais();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,16 +39,10 @@ public class ControladorPais extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ControladorPais</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ControladorPais at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            
         }
+        
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -84,5 +83,30 @@ public class ControladorPais extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
+public ArrayList listar(){
+        
+        try {
+            ResultSet consulta = objPais.listarPais();
+            ArrayList<Pais> listaPais = new ArrayList<>();
+            
+            while(consulta.next()){
+                objPais = new Pais();
+                objPais.setId_pais(consulta.getInt(1));
+                objPais.setDesc_pais(consulta.getString(2));
+                listaPais.add(objPais);
+                
+            }
+            return listaPais;
+            
+        } catch (Exception error) {
+            
+            System.out.println("Error de controlador: "+ error);
+        }
+        
+        return null;
+    }
+    
+    
+    
+    
 }
