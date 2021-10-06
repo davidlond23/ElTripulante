@@ -49,7 +49,7 @@ public class Categoria {
         objConector.conectar();
         
         try {
-            String sql = "SELECT * FROM Categoria WHERE idCategoria = ?; "; 
+            String sql = "SELECT * FROM categoria WHERE id_categoria = ?; "; 
             PreparedStatement stmt; 
             stmt = objConector.conn.prepareStatement(sql);
             stmt.setInt(1, this.id_categoria);
@@ -64,12 +64,12 @@ public class Categoria {
         return null; 
     }
     
-    public ResultSet listarCategoria(){
+    public ResultSet listarcategoria(){
         Conexion objConector = new Conexion(); 
         objConector.conectar();
         
         try {
-            String sql = "SELECT * FROM Categoria; "; 
+            String sql = "SELECT * FROM categoria; "; 
             PreparedStatement stmt; 
             stmt = objConector.conn.prepareStatement(sql); 
             ResultSet consulta = stmt.executeQuery(); 
