@@ -50,7 +50,7 @@
             <thead>
                 <tr style="height: 200px">
                     <td style="width: 30%">
-                    <img src="assets/img/Isla.jpg" alt="ElTripulante"> 
+                    <img src="assets/img/avionreserva.jpg" alt="ElTripulante"> 
                     </td>
                     <td style="width: 1%"></td>
                     <td style="width: 79%"> 
