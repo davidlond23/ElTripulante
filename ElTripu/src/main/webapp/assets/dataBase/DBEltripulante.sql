@@ -10,7 +10,7 @@ CREATE TABLE usuario
 	correo_usuario VARCHAR(50) NOT NULL,
 	fecnac_usuario DATE NOT NULL,
 	id_menor INT NULL
-);  
+);
 CREATE TABLE tipodocumento 
 (     
     id_tipodoc INT PRIMARY KEY AUTO_INCREMENT,
@@ -76,3 +76,42 @@ CREATE TABLE categoria
 	desc_categoria VARCHAR (15) NOT NULL
 );
 
+ALTER TABLE menor
+ADD FOREIGN KEY (id_usuario)
+REFERENCES usuario (id_usuario);
+
+ALTER TABLE reserva
+ADD FOREIGN KEY (id_usuario)
+REFERENCES usuario (id_usuario);
+
+ALTER TABLE menor
+ADD FOREIGN KEY (tipodoc_menor)
+REFERENCES tipodocumento (id_tipodoc);
+
+ALTER TABLE usuario
+ADD FOREIGN KEY (tipodoc_usuario)
+REFERENCES tipodocumento (id_tipodoc);
+
+ALTER TABLE vuelo
+ADD FOREIGN KEY (id_categoria)
+REFERENCES categoria (id_categoria);
+
+ALTER TABLE ciudad
+ADD FOREIGN KEY (id_pais)
+REFERENCES pais (id_pais);
+
+ALTER TABLE reserva
+ADD FOREIGN KEY (id_vuelo)
+REFERENCES vuelo (id_vuelo);
+
+ALTER TABLE vuelo
+ADD FOREIGN KEY (id_aerolinea)
+REFERENCES aerolinea (id_aerolinea);
+
+ALTER TABLE vuelo
+ADD FOREIGN KEY (origen_vuelo)
+REFERENCES ciudad (id_ciudad);
+
+ALTER TABLE vuelo
+ADD FOREIGN KEY (destino_vuelo)
+REFERENCES ciudad (id_ciudad);

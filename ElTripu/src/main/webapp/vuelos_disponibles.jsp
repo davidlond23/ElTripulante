@@ -3,7 +3,9 @@
     Created on : 6/10/2021, 03:04:50 PM
     Author     : 15db-0005
 --%>
-
+<%@page import="Controladores.ControladorVuelo"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Modelos.Vuelo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE jsp>
 
@@ -19,6 +21,17 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
+                <script type="text/javascript">
+            function confirmar(){
+                var respuesta = confirm("¿Desea reservar el vuelo?"); 
+                if(respuesta === true){
+                    return true; 
+                }
+                else{
+                    return false; 
+                }
+            }
+        </script>
         <div>
             <a href="index.jsp">
                 <img src="assets/img/Logo.jpg" width= 100% height="300" alt="ElTripulante"> 
@@ -55,7 +68,7 @@
                             <h4>Precio</h4>
                         </div>
 
-                        <button class="accordion">Vuelo 3</button>
+                        <button class="accordion" onclick="return confirmar();">Vuelo 3</button>
                         <div class="panel">
                             <p>IdVuelo      Aerolinea     Origen     Origen     Destino     Categoria     Precio Fecha ida     Fecha regreso     Hora salida     Hora llegada     Sillas</p>
                             <h4>Precio</h4>

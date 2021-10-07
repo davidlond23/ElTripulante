@@ -4,6 +4,7 @@
     Author     : 15db-0005
 --%>
 
+<%@page import="Controladores.ControlUsuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE jsp>
 <!--
@@ -49,45 +50,49 @@ and open the template in the editor.
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td><label for="name">Nombre completo</label></td>
-                <td><input type="text" id="name" name="userName" /></td>
-                <td><label for="childName">Nombre completo</label></td>
-                <td><input type="text" id="childName" name="userChildName" /></td>
-            </tr>
-            <tr>
-                <td>Tipo de identificación</td>
-                <td><select name="idType">
-                    <option value="1">Cédula de ciudadanía</option> 
-                    <option value="2">Cédula de extranjería</option> 
-                    <option value="3">Pasaporte</option>
-                    </select></td>
-                <td><label for="childIdNum">Número de identificación</label></td>
-                <td><input type="number" id="childIdNum" name="userChildId" /></td>
-            </tr>
-            <tr>
-                <td><label for="idNum">Número de identificación</label></td>
-                <td><input type="number" id="idNum" name="userId" /></td>
-            </tr>
-            <tr>
-                <td><label for="bdate">Fecha de nacimiento</label></td>
-                <td>
-                    <input type="date" id="bdate" name="userBirthDate"
-                           value="2021-09-20"
-                           min="1921-01-01" max="2021-09-20">
+            <form method="POST" action="ControlUsuario">
+                <tr>
+                    <td><label for="nombre_usuario">Nombre completo</label></td>
+                    <td><input type="text" id="name" name="nombre_usuario" /></td>
+                    <td><label for="childName">Nombre completo</label></td>
+                    <td><input type="text" id="childName" name="userChildName" /></td>
+                </tr>
+                <tr>
+                    <td>Tipo de identificación</td>
+                    <td><select name="tipodoc_usuario">
+                        <option value="1">Tarjeta de Identidad</option> 
+                        <option value="2">Cedula de Ciudadania</option> 
+                        <option value="3">Cédula de Extranjería</option>
+                        <option value="4">Pasaporte</option>
+                        <option value="5">Registro de Nacimiento</option>
+                        </select></td>
+                    <td><label for="childIdNum">Número de identificación</label></td>
+                    <td><input type="number" id="childIdNum" name="userChildId" /></td>
+                </tr>
+                <tr>
+                    <td><label for="numdoc_usuario">Número de identificación</label></td>
+                    <td><input type="text" id="idNum" name="numdoc_usuario" /></td>
+                </tr>
+                <tr>
+                    <td><label for="fecnac_usuario">Fecha de nacimiento</label></td>
+                    <td>
+                        <input type="date" id="bdate" name="fecnac_usuario"
+                               value="2021-09-20"
+                               min="1921-01-01" max="2021-09-20">
+                        </td>
+                </tr>
+                <tr>
+                    <td><label for="telefono_usuario">Número de teléfono</label></td>
+                    <td><input type="text" id="phone" name="telefono_usuario" /></td>
+                </tr>
+                <tr>
+                    <td><label for="correo_usuario">Correo electrónico</label>
+                    <td><input type="email" id="mail" name="correo_usuario" /></td>
+                    <td style="text-align: right;">
+                        <button class="button" value="Insertar" name="btnReservar"> Reservar </button>
                     </td>
-            </tr>
-            <tr>
-                <td><label for="phone">Número de teléfono</label></td>
-                <td><input type="number" id="phone" name="userPhone" /></td>
-            </tr>
-            <tr>
-                <td><label for="mail">Correo electrónico</label>
-                <td><input type="email" id="mail" name="userEmail" /></td>
-                <td style="text-align: right;">
-                    <button class="button"> Reservar </button>
-                </td>
-            </tr>
+                </tr>
+            </form>
         </tbody>
         </center>
     </table>

@@ -128,7 +128,7 @@ public class Vuelo {
     
     public ResultSet listarVuelo(){
         
-         Conexion objConector = new Conexion(); 
+        Conexion objConector = new Conexion(); 
         objConector.conectar();
         
         try {

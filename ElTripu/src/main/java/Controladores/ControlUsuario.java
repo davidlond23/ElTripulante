@@ -37,27 +37,22 @@ public class ControlUsuario extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-String accion = request.getParameter("btnInsertar Reserva");    
+        String accion = request.getParameter("btnReservar");    
             
             if(accion.equals("Insertar")){
-                
-                int id_usuario = Integer.parseInt(request.getParameter("id_usuario"));
-                int id_menor = Integer.parseInt(request.getParameter("id_menor"));
                 int tipodoc_usuario = Integer.parseInt(request.getParameter("tipodoc_usuario"));
-                String nombre_usuario = request.getParameter("nombre_usuario"); 
-                String numdoc_usuario = request.getParameter("numdoc_usuario"); 
-                String telefono_usuario = request.getParameter("telefono_usuario"); 
-                String correo_usuario = request.getParameter("correo_usuario"); 
-                String fecnac_usuario = request.getParameter("fecnac_usuario"); 
+                String nombre_usuario = request.getParameter("nombre_usuario") == null ? "" : request.getParameter("nombre_usuario"); 
+                String numdoc_usuario = request.getParameter("numdoc_usuario") == null ? "" : request.getParameter("numdoc_usuario");
+                String telefono_usuario = request.getParameter("telefono_usuario") == null ? "" : request.getParameter("telefono_usuario");
+                String correo_usuario = request.getParameter("correo_usuario") == null ? "" : request.getParameter("correo_usuario");
+                String fecnac_usuario = request.getParameter("fecnac_usuario") == null ? "" : request.getParameter("fecnac_usuario");
  
-                objUsuario.setid_usuario(id_usuario);
                 objUsuario.setnombre_usuario(nombre_usuario);
                 objUsuario.settipodoc_usuario(tipodoc_usuario);
                 objUsuario.setnumdoc_usuario(numdoc_usuario);
                 objUsuario.settelefono_usuario(telefono_usuario);
                 objUsuario.setcorreo_usuario(correo_usuario);
                 objUsuario.setfecnac_usuario(fecnac_usuario);
-                objUsuario.setid_menor(id_menor);
                 
                 objUsuario.crearUsuario();
                 
@@ -70,6 +65,9 @@ String accion = request.getParameter("btnInsertar Reserva");
                 System.out.println(mensaje); 
             }
     }
+        catch(Exception error){
+            System.out.println("Error en el controlador: "+error);
+        }
     }
     
     public ArrayList listar(){
@@ -87,9 +85,9 @@ String accion = request.getParameter("btnInsertar Reserva");
                 objUsuario.setcorreo_usuario(consulta.getString(6));
                 objUsuario.setfecnac_usuario(consulta.getString(7));
                 objUsuario.setid_menor(consulta.getInt(8));
-                listaUsuario.add(objUsuario); 
+                listaUsuario.add(objUsuario);
             }
-            return listaUsuario; 
+            return listaUsuario;      
         }
         catch(Exception error){
             System.out.println("ERROR: "+error);
@@ -147,6 +145,7 @@ String accion = request.getParameter("btnInsertar Reserva");
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
+        request.getRequestDispatcher("/index.jsp").forward(request, response);
         processRequest(request, response);
     }
 

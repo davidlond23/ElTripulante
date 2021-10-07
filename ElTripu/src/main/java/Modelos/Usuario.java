@@ -107,17 +107,16 @@ public class Usuario {
         
         try {
 
-            String sql = "INSERT INTO usuario VALUES (?,?,?,?,?,?,?,?);";
+            String sql = "INSERT INTO usuario VALUES (LAST_INSERT_ID(),?,?,?,?,?,?,?);";
             PreparedStatement stmt; 
             stmt = objConector.conn.prepareStatement(sql); 
-            stmt.setInt(1, this.id_usuario);
-            stmt.setString(2, this.nombre_usuario);
-            stmt.setInt(3, this.tipodoc_usuario);
-            stmt.setString(4, this.numdoc_usuario);
-            stmt.setString(5, this.telefono_usuario);
-            stmt.setString(6, this.correo_usuario);
-            stmt.setString(7, this.fecnac_usuario);
-            stmt.setInt(8, this.id_menor);
+            stmt.setString(1, this.nombre_usuario);
+            stmt.setInt(2, this.tipodoc_usuario);
+            stmt.setString(3, this.numdoc_usuario);
+            stmt.setString(4, this.telefono_usuario);
+            stmt.setString(5, this.correo_usuario);
+            stmt.setString(6, this.fecnac_usuario);
+            stmt.setInt(7, this.id_menor);
             
             stmt.execute(); 
             

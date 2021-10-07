@@ -39,7 +39,12 @@ public class ControladorVuelo extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+        String accion = request.getParameter("btnBuscar");    
             
+            if(accion.equals("listar")){
+                
+                listar();
+            }    
         }
     }
 
@@ -65,7 +70,8 @@ public ArrayList listar(){
          objVuelo. setSillas_vuelo(consulta.getInt(10));
          objVuelo. setId_aerolinea(consulta.getInt(11));
         
-         listaVuelo.add(objVuelo);   
+         listaVuelo.add(objVuelo);
+         System.out.println(listaVuelo);
 
      }
      return listaVuelo;
@@ -98,7 +104,8 @@ public ArrayList consultar(int id_vuelo){
                 objVuelo. setPrecio_vuelo(consulta.getFloat(9));
                 objVuelo. setSillas_vuelo(consulta.getInt(10));
                 objVuelo. setId_aerolinea(consulta.getInt(11));
-                listaVuelo.add(objVuelo); 
+                listaVuelo.add(objVuelo);
+                System.out.println(listaVuelo);
             }
             return listaVuelo; 
         }
@@ -120,6 +127,7 @@ public ArrayList consultar(int id_vuelo){
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.getRequestDispatcher("/vuelos_disponibles.jsp").forward(request, response);
         processRequest(request, response);
     }
 
@@ -134,6 +142,7 @@ public ArrayList consultar(int id_vuelo){
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.getRequestDispatcher("/vuelos_disponibles.jsp").forward(request, response);
         processRequest(request, response);
     }
 

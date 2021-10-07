@@ -3,7 +3,9 @@
     Created on : 5/10/2021, 07:13:39 PM
     Author     : User
 --%>
-
+<%@page import="Controladores.ControladorVuelo"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Modelos.Vuelo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE jsp>
 <!--
@@ -25,6 +27,17 @@ and open the template in the editor.
     
     </head>
     <body>
+        <script type="text/javascript">
+            function confirmar(){
+                var respuesta = confirm("¿Desea reservar el vuelo?"); 
+                if(respuesta === true){
+                    return true; 
+                }
+                else{
+                    return false; 
+                }
+            }
+        </script>
         <div class= "login aTextR">
             <label> Usuario </label>
                     <input type="text" placeholder="ETBG" name="Usuario">
@@ -60,7 +73,7 @@ and open the template in the editor.
                     </td>
                     
                     <td style="width:300%"> <center><h3>Encuentra el vuelo adecuado</h3> </center>
-                    <form action="index.jsp" method="POST">
+                    <form method="GET" value="Insertar" action="ControlVuelo">
                             <br>
                             <center>
                             <label> Ida </label>
@@ -93,8 +106,7 @@ and open the template in the editor.
                             </center>
                             <div>
                             <center>                               
-                            <button> BUSCAR</button>
-                            <a href="vuelos_Disponibles.jsp"></a>
+                            <button value="Listar" name="btnBuscar"> BUSCAR</button>
                             </center>
                             </div>
                     </form>
