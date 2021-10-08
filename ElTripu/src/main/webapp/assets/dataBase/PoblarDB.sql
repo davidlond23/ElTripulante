@@ -11,6 +11,8 @@ INSERT INTO tipodocumento VALUES (3, "Cédula de Extranjería");
 INSERT INTO tipodocumento VALUES (4, "Pasaporte");
 INSERT INTO tipodocumento VALUES (5, "Registro de Nacimiento");
 
+INSERT INTO ciudad VALUES (0, "Cualquiera", 1);
+
 INSERT INTO pais VALUES (1, "Colombia");
 INSERT INTO ciudad VALUES (1, "Bogota", 1);
 INSERT INTO ciudad VALUES (2, "Medellín", 1);

@@ -56,6 +56,7 @@
                     <td style="width: 79%"> 
                         <h2 class="Text">Vuelos disponibles</h2> 
                         <% 
+                         
                           String fechaida=request.getParameter("Fechadeida");
                           String fecharegreso=request.getParameter("Fechaderegreso");
                           
@@ -74,8 +75,13 @@
                         
                         <button class="accordion">Vuelo <%=listaVuelo.get(i).getId_vuelo()%> </button>
                         <div class="panel">
-                            <p>Origen: <%=listaVuelo.get(i).getOrigen_vuelo()%></p>
-                            <h4>Precio:  <%=listaVuelo.get(i).getPrecio_vuelo()%> </h4>
+                            <button class="accordion">Vuelo <%=listaVuelo.get(i).getId_vuelo()%> </button>
+                            <div class="panel">
+                            <p>Origen: <%=listaVuelo.get(i).getOrigen_vuelo() %></p> 
+                            <p>Destino: <%=listaVuelo.get(i).getDestino_vuelo()%></p>
+                            <p>Fecha de Ida: <%=listaVuelo.get(i).getFechaida_vuelo()%></p>
+                            <p>Fecha de regreso: <%=listaVuelo.get(i).getFecharegreso_vuelo()%></p> 
+                            <button onclick="return confirmar();">Seleccionar</button>
                         </div>
 
                      <% }%>

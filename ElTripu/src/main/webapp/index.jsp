@@ -3,6 +3,8 @@
     Created on : 5/10/2021, 07:13:39 PM
     Author     : User
 --%>
+<%@page import="Controladores.ControladorCiudad"%>
+<%@page import="Modelos.Ciudad"%>
 <%@page import="Controladores.ControladorVuelo"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Modelos.Vuelo"%>
@@ -36,7 +38,16 @@ and open the template in the editor.
                 else{
                     return false; 
                 }
-            }
+            };
+           
+            function deshabilitar(){    
+                  document.getElementById('Fechaderegreso').disabled = false;
+            };
+            
+            function habilitar(){    
+                  document.getElementById('Fechaderegreso').disabled = true;
+            };
+         
         </script>
         <div class= "login aTextR">
             <label> Usuario </label>
@@ -77,13 +88,26 @@ and open the template in the editor.
                             <br>
                             <center>
                             <label> Ida </label>
-                            <input type="radio" value="Ida" name="Ida">
+                            <input type="radio" id="Ida" value="Ida" name="viaje" onclick="return habilitar();" checked>
                             <label> Ida y Vuelta </label>
-                            <input type="radio" value="Ida y Vuelta" name="Ida y Vuelta">
+                            <input type="radio" id="IdaVuelta" value="IdaVuelta" name="viaje" onclick="return deshabilitar();" required>
                             <br>
                             <br>
                             <label> Destino: </label>
-                            <input type="text" placeholder="Bogotá" name="Destino">
+                            <select name="ciudad">
+                            <option>Cualquiera</option>
+                            <% 
+                            ArrayList<Ciudad> listaCiudad =  new ArrayList<>(); 
+                            ControladorCiudad ctrCiudad = new ControladorCiudad(); 
+                            listaCiudad = ctrCiudad.listar(); 
+
+                            for(int i=0; i<listaCiudad.size();i++){
+
+                            %>
+                            <option><%=listaCiudad.get(i).getDesc_ciudad()%></option> 
+                            <%}%>
+                            </select>
+                            
                             <br>
                             <br>
                             <label> Fecha de ida: </label>
@@ -91,7 +115,7 @@ and open the template in the editor.
                             <br>
                             <br>
                             <label> Fecha de regreso: </label>
-                            <input type="date" name="Fechaderegreso">
+                            <input type="date" id="Fechaderegreso" disabled>
                             <br>
                             <br>
                             <label> Pasajeros: </label>
