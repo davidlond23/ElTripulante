@@ -121,7 +121,7 @@ public class Menor {
         objConector.conectar();
         
         try {
-            String sql = "SELECT * FROM menor";
+            String sql = "SELECT * FROM menor; ";
             PreparedStatement stmt;
             stmt = objConector.conn.prepareStatement(sql);
             ResultSet Consulta = stmt.executeQuery();

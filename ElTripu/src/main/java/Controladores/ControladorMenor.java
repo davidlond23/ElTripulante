@@ -45,8 +45,8 @@ public class ControladorMenor extends HttpServlet {
                 int id_menor = Integer.parseInt(request.getParameter("id_menor"));
                 int id_usuario = Integer.parseInt(request.getParameter("id_usuario"));
                 int tipodoc_menor = Integer.parseInt(request.getParameter("tipodoc_menor"));
-                String numdoc_menor = request.getParameter("numdoc_menor"); 
-                String fecnac_menor = request.getParameter("fecnac_menor"); 
+                String numdoc_menor = request.getParameter("numdoc_menor") == null ? "" : request.getParameter("numdoc_menor"); 
+                String fecnac_menor = request.getParameter("fecnac_menor") == null ? "" : request.getParameter("fecnac_menor"); 
                 
                 objMenor.setId_menor(id_menor);
                 objMenor.setId_usuario(id_usuario);
@@ -62,51 +62,9 @@ public class ControladorMenor extends HttpServlet {
                                  "  window.location.href='index.jsp'; "+
                                  "</script> </body> </html>"; 
                 
-                out.println(mensaje); 
-            }
-            else if (accion.equals("Actualizar")){
-                
-                int id_menor = Integer.parseInt(request.getParameter("id_menor"));
-                int id_usuario = Integer.parseInt(request.getParameter("id_usuario"));
-                int tipodoc_menor = Integer.parseInt(request.getParameter("tipodoc_menor"));
-                String numdoc_menor = request.getParameter("numdoc_menor"); 
-                String fecnac_menor = request.getParameter("fecnac_menor"); 
-                
-                objMenor.setId_menor(id_menor);
-                objMenor.setId_usuario(id_usuario);
-                objMenor.setTipodoc_menor(tipodoc_menor);
-                objMenor.setNumdoc_menor(numdoc_menor);
-                objMenor.setFecnac_menor(fecnac_menor);
-                
-                objMenor.actualizarMenor();
-                
-                String mensaje = " <html> <body>"+
-                                 "<script type='text/javaScript'> "+
-                                 "  alert('Menor actualizado correctamente'); "+
-                                 "  window.location.href='index.jsp'; "+
-                                 "</script> </body> </html>"; 
-                
                 System.out.println(mensaje); 
-            }
-            else if (accion.equals("Eliminar")){
-                
-                int id_menor = Integer.parseInt(request.getParameter("id_menor"));
-                                
-                objMenor.setId_menor(id_menor);
-                
-                objMenor.eliminarMenor();
-                
-                String mensaje = " <html> <body>"+
-                                 "<script type='text/javaScript'> "+
-                                 "  alert('Menor eliminado correctamente'); "+
-                                 "  window.location.href='index.jsp'; "+
-                                 "</script> </body> </html>"; 
-                
-               System.out.println(mensaje); 
-            }
-            
-            
-            
+            }         
+                        
         }
         catch(Exception error){
             System.out.println("Error en el controlador: "+error);
