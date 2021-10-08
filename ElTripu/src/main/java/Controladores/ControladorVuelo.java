@@ -85,9 +85,10 @@ public ArrayList listar(){
     }
 /**------------------*/
 
-public ArrayList consultar(int id_vuelo){
+public ArrayList consultar(String fechaida_vuelo, String fecharegreso_vuelo){
         try{
-            objVuelo.setId_vuelo(id_vuelo);
+            objVuelo.setFechaida_vuelo(fechaida_vuelo);
+            objVuelo.setFecharegreso_vuelo(fecharegreso_vuelo);
             ResultSet consulta = objVuelo.consultarVuelo(); 
             ArrayList<Vuelo> listaVuelo = new ArrayList<>(); 
             

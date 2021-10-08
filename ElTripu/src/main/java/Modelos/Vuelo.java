@@ -153,10 +153,11 @@ public class Vuelo {
         objConector.conectar();
         
         try {
-            String sql = "SELECT * FROM vuelo WHERE id_vuelo = ?; "; 
+            String sql = "SELECT * FROM vuelo WHERE fechaida_vuelo = ? AND fecharegreso_vuelo= ? ; " ; 
             PreparedStatement stmt; 
             stmt = objConector.conn.prepareStatement(sql);
-            stmt.setInt(1, this.id_vuelo);
+            stmt.setString(1, this.fechaida_vuelo);
+            stmt.setString(2, this.fecharegreso_vuelo);
             ResultSet consulta = stmt.executeQuery(); 
             objConector.desconectar();
             return consulta; 

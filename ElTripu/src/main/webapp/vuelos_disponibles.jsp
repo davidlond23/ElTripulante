@@ -50,34 +50,47 @@
             <thead>
                 <tr style="height: 200px">
                     <td style="width: 30%">
-                    <img src="assets/img/avionreserva.jpg" alt="ElTripulante"> 
+                    <img src="assets/img/avionreserva.jpg" width="700" height="900"> 
                     </td>
                     <td style="width: 1%"></td>
                     <td style="width: 79%"> 
                         <h2 class="Text">Vuelos disponibles</h2> 
+                        <% 
+                          String fechaida=request.getParameter("Fechadeida");
+                          String fecharegreso=request.getParameter("Fechaderegreso");
+                          
+                           ArrayList<Vuelo> listaVuelo = new ArrayList<>();
+                           ControladorVuelo objVuelo=new ControladorVuelo();
+                           listaVuelo= objVuelo.consultar(fechaida, fecharegreso);  
+
+                          for (int i=0; i<listaVuelo.size(); i++){
+                              
+                          
+                          
+                            
+
+
+                        %>
                         
-                        <button class="accordion">Vuelo 1</button>
+                        <button class="accordion">Vuelo <%=listaVuelo.get(i).getId_vuelo()%> </button>
                         <div class="panel">
-                            <p>IdVuelo      Aerolinea     Origen     Origen     Destino     Categoria     Precio Fecha ida     Fecha regreso     Hora salida     Hora llegada     Sillas</p>
-                            <h4>Precio</h4>
+                            <p>Origen: <%=listaVuelo.get(i).getOrigen_vuelo()%></p>
+                            <h4>Precio:  <%=listaVuelo.get(i).getPrecio_vuelo()%> </h4>
                         </div>
 
-                        <button class="accordion">Vuelo 2</button>
-                        <div class="panel">
-                            <p>IdVuelo      Aerolinea     Origen     Origen     Destino     Categoria     Precio Fecha ida     Fecha regreso     Hora salida     Hora llegada     Sillas</p>
-                            <h4>Precio</h4>
-                        </div>
-
-                        <button class="accordion" onclick="return confirmar();">Vuelo 3</button>
-                        <div class="panel">
-                            <p>IdVuelo      Aerolinea     Origen     Origen     Destino     Categoria     Precio Fecha ida     Fecha regreso     Hora salida     Hora llegada     Sillas</p>
-                            <h4>Precio</h4>
-                        </div>
-                        
+                     <% }%>
 			
                     </td>
         </table>
         </center>
+     <div> 
+      
+     </div>
+    <div>
+        <center>
+             <img src="assets/img/logofooter.jpeg" width="400" height="110" alt="logoempresa">
+        </center>
+    </div>
     <footer class="footer pt-5">
         <center>
             <div>
@@ -92,6 +105,8 @@
                       <a class="navbar-brand" href="http://instagram.com">
                         <img src="assets/img/instagram.png" width="30" height="30" alt="ElTripulante">
                       </a>
+                       </center>
+                  
                 </div>
             </div>
 

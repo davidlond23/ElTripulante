@@ -96,6 +96,11 @@ and open the template in the editor.
         </tbody>
         </center>
     </table>
+    <div>
+        <center>
+             <img src="assets/img/logofooter.jpeg" width="400" height="110" alt="logoempresa">
+        </center>
+    </div>
     
     <footer class="footer pt-5">
         <center>

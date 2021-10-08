@@ -73,7 +73,7 @@ and open the template in the editor.
                     </td>
                     
                     <td style="width:300%"> <center><h3>Encuentra el vuelo adecuado</h3> </center>
-                    <form method="GET" value="Insertar" action="ControlVuelo">
+                    <form method="GET" action="vuelos_disponibles.jsp">
                             <br>
                             <center>
                             <label> Ida </label>
@@ -87,11 +87,11 @@ and open the template in the editor.
                             <br>
                             <br>
                             <label> Fecha de ida: </label>
-                            <input type="date" name="Fecha de ida">
+                            <input type="date" name="Fechadeida">
                             <br>
                             <br>
                             <label> Fecha de regreso: </label>
-                            <input type="date" name="Fecha de regreso">
+                            <input type="date" name="Fechaderegreso">
                             <br>
                             <br>
                             <label> Pasajeros: </label>
@@ -113,6 +113,14 @@ and open the template in the editor.
                 </tr>
             </thead>
         </table>
+        <div> 
+      
+     </div>
+    <div>
+        <center>
+             <img src="assets/img/logofooter.jpeg" width="400" height="110" alt="logoempresa">
+        </center>
+    </div>
                 
         <footer class="footer pt-5">
             <center>
