@@ -60,7 +60,7 @@ CREATE TABLE vuelo
 	id_vuelo INT PRIMARY KEY AUTO_INCREMENT,
 	origen_vuelo INT NOT NULL,
 	destino_vuelo INT NOT NULL,
-	fechaida_vuelo DATE NOT NULL,
+        fechaida_vuelo DATE NOT NULL,
 	fecharegreso_vuelo DATE,
 	horasalida_vuelo TIME NOT NULL,
 	horaregreso_vuelo TIME,

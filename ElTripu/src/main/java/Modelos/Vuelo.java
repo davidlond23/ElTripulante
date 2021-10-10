@@ -148,7 +148,7 @@ public class Vuelo {
     }
 
     public void setCategoriastr(String categoriastr) {
-        this.destinostr = categoriastr;
+        this.categoriastr = categoriastr;
     }
     public String getAerolineastr() {
         return aerolineastr;
