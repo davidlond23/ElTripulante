@@ -17,6 +17,8 @@ public class Vuelo {
     int id_vuelo;
     int origen_vuelo;
     int destino_vuelo;
+    String des_origen_vuelo;
+    String des_destino_vuelo;
     String fechaida_vuelo;
     String fecharegreso_vuelo;
     String horasalida_vuelo;
@@ -153,14 +155,14 @@ public class Vuelo {
         objConector.conectar();
         
         try {
-            String sql = "SELECT * FROM vuelo WHERE fechaida_vuelo = ? AND fecharegreso_vuelo= ? ; " ; 
-                PreparedStatement stmt; 
-                stmt = objConector.conn.prepareStatement(sql);
-                stmt.setString(1, this.fechaida_vuelo);
-                stmt.setString(2, this.fecharegreso_vuelo);
-                ResultSet consulta = stmt.executeQuery(); 
-                objConector.desconectar();
-                return consulta;
+            String sql = "SELECT * FROM vuelo WHERE fechaida_vuelo = ? AND fecharegreso_vuelo = ? "; 
+            PreparedStatement stmt; 
+            stmt = objConector.conn.prepareStatement(sql);
+            stmt.setString(1, this.fechaida_vuelo);
+            stmt.setString(2, this.fecharegreso_vuelo);
+            ResultSet consulta = stmt.executeQuery(); 
+            objConector.desconectar();
+            return consulta; 
             
         } catch (Exception error) {
             System.out.println("Error en el ID de Aerolínea: "+ error);

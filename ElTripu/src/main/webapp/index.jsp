@@ -111,11 +111,11 @@ and open the template in the editor.
                             <br>
                             <br>
                             <label> Fecha de ida: </label>
-                            <input type="date" name="Fechadeida">
+                            <input type="date" id="Fechadeida" name="Fechadeida">
                             <br>
                             <br>
                             <label> Fecha de regreso: </label>
-                            <input type="date" id="Fechaderegreso" disabled>
+                            <input type="date" id="Fechaderegreso" name="Fechaderegreso" disabled>
                             <br>
                             <br>
                             <label> Pasajeros: </label>

@@ -21,11 +21,11 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
-                <script type="text/javascript">
+        <script type="text/javascript">
             function confirmar(){
                 var respuesta = confirm("¿Desea reservar el vuelo?"); 
                 if(respuesta === true){
-                    return true; 
+                    return true;
                 }
                 else{
                     return false; 
@@ -56,26 +56,28 @@
                     <td style="width: 79%"> 
                         <h2 class="Text">Vuelos disponibles</h2> 
                         <% 
-                          String fechaida=request.getParameter("Fechadeida");
-                          String fecharegreso=request.getParameter("Fechaderegreso");
+                            String fechaida=request.getParameter("Fechadeida");
+                            String fecharegreso=request.getParameter("Fechaderegreso");
                           
-                           ArrayList<Vuelo> listaVuelo = new ArrayList<>();
-                           ControladorVuelo objVuelo=new ControladorVuelo();
-                           listaVuelo= objVuelo.consultar(fechaida, fecharegreso);  
+                            ArrayList<Vuelo> listaVuelo = new ArrayList<>();
+                            ControladorVuelo objVuelo=new ControladorVuelo();
+                            listaVuelo= objVuelo.consultar(fechaida, fecharegreso);  
 
-                          for (int i=0; i<listaVuelo.size(); i++){
-                              
-                          
-                          
-                            
-
-
+                            for (int i=0; i<listaVuelo.size(); i++){
                         %>
                         
                         <button class="accordion">Vuelo <%=listaVuelo.get(i).getId_vuelo()%> </button>
                         <div class="panel">
-                            <p>Origen: <%=listaVuelo.get(i).getOrigen_vuelo()%></p>
-                            <h4>Precio:  <%=listaVuelo.get(i).getPrecio_vuelo()%> </h4>
+                            <p>Origen: <%=listaVuelo.get(i).getOrigen_vuelo() %></p> 
+                            <p>Destino: <%=listaVuelo.get(i).getDestino_vuelo()%></p>
+                            <p>Fecha de Ida: <%=listaVuelo.get(i).getFechaida_vuelo()%></p>
+                            <p>Fecha de regreso: <%=listaVuelo.get(i).getFecharegreso_vuelo()%></p>
+                            <p>Hora de salida: <%=listaVuelo.get(i).getHorasalida_vuelo()%></p>
+                            <p>Hora de regreso: <%=listaVuelo.get(i).getHoraregreso_vuelo()%></p>
+                            <p>Categoria: <%=listaVuelo.get(i).getId_categoria()%></p>
+                            <p>Aerolinea: <%=listaVuelo.get(i).getId_aerolinea()%></p>
+                            <p>Precio: $ <%=listaVuelo.get(i).getPrecio_vuelo()%> </p>
+                            <button onclick="return confirmar();" ><a href="reserva.jsp">Seleccionar</a></button>
                         </div>
 
                      <% }%>
