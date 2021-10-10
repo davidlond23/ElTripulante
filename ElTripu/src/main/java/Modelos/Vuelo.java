@@ -23,6 +23,10 @@ public class Vuelo {
     String fecharegreso_vuelo;
     String horasalida_vuelo;
     String horaregreso_vuelo;
+    String origenstr;
+    String destinostr;
+    String categoriastr;
+    String aerolineastr;
     int id_categoria;
     float precio_vuelo;
     int sillas_vuelo;
@@ -123,6 +127,39 @@ public class Vuelo {
         this.id_aerolinea = id_aerolinea;
     }
     
+    public String getOrigenstr() {
+        return origenstr;
+    }
+
+    public void setOrigenstr(String origenstr) {
+        this.origenstr = origenstr;
+    }
+    
+     public String getDestinostr() {
+        return destinostr;
+    }
+
+    public void setDestinostr(String destinostr) {
+        this.destinostr = destinostr;
+    }
+
+    public String getCategoriastr() {
+        return categoriastr;
+    }
+
+    public void setCategoriastr(String categoriastr) {
+        this.destinostr = categoriastr;
+    }
+    public String getAerolineastr() {
+        return aerolineastr;
+    }
+
+    public void setAerolineastr(String aerolineastr) {
+        this.aerolineastr = aerolineastr;
+    }
+    
+    
+    
     // METODOS
 
 
@@ -155,7 +192,7 @@ public class Vuelo {
         objConector.conectar();
         
         try {
-            String sql = "SELECT * FROM vuelo WHERE fechaida_vuelo = ? AND fecharegreso_vuelo = ? "; 
+            String sql = "SELECT * FROM ciudades WHERE fechaida_vuelo = ? AND fecharegreso_vuelo = ? ; "; 
             PreparedStatement stmt; 
             stmt = objConector.conn.prepareStatement(sql);
             stmt.setString(1, this.fechaida_vuelo);

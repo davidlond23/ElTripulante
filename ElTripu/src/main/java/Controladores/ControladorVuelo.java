@@ -59,16 +59,16 @@ public ArrayList listar(){
          objVuelo = new Vuelo ();
 
          objVuelo.setId_vuelo(consulta.getInt(1));
-         objVuelo. setOrigen_vuelo(consulta.getInt(2));
-         objVuelo. setDestino_vuelo(consulta.getInt(3));
+         objVuelo. setOrigenstr(consulta.getString(2));
+         objVuelo. setDestinostr(consulta.getString(3));
          objVuelo. setFechaida_vuelo(consulta.getString(4));
          objVuelo. setFecharegreso_vuelo(consulta.getString(5));
          objVuelo. setHorasalida_vuelo(consulta.getString(6));
          objVuelo. setHoraregreso_vuelo(consulta.getString(7));
-         objVuelo. setId_categoria(consulta.getInt(8));
+         objVuelo. setCategoriastr(consulta.getString(8));
          objVuelo. setPrecio_vuelo(consulta.getFloat(9));
          objVuelo. setSillas_vuelo(consulta.getInt(10));
-         objVuelo. setId_aerolinea(consulta.getInt(11));
+         objVuelo. setAerolineastr(consulta.getString(11));
         
          listaVuelo.add(objVuelo);
          System.out.println(listaVuelo);
@@ -95,16 +95,16 @@ public ArrayList consultar(String fechaida_vuelo, String fecharegreso_vuelo){
             while(consulta.next()){
                 objVuelo = new Vuelo(); 
                 objVuelo. setId_vuelo(consulta.getInt(1));
-                objVuelo. setOrigen_vuelo(consulta.getInt(2));
-                objVuelo. setDestino_vuelo(consulta.getInt(3));
+                objVuelo. setOrigenstr(consulta.getString(2));
+                objVuelo. setDestinostr(consulta.getString(3));
                 objVuelo. setFechaida_vuelo(consulta.getString(4));
                 objVuelo. setFecharegreso_vuelo(consulta.getString(5));
                 objVuelo. setHorasalida_vuelo(consulta.getString(6));
                 objVuelo. setHoraregreso_vuelo(consulta.getString(7));
-                objVuelo. setId_categoria(consulta.getInt(8));
+                objVuelo. setCategoriastr(consulta.getString(8));
                 objVuelo. setPrecio_vuelo(consulta.getFloat(9));
                 objVuelo. setSillas_vuelo(consulta.getInt(10));
-                objVuelo. setId_aerolinea(consulta.getInt(11));
+                objVuelo. setAerolineastr(consulta.getString(11));
                 listaVuelo.add(objVuelo);
                 System.out.println(listaVuelo);
             }

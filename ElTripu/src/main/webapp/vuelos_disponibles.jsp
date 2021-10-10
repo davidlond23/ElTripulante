@@ -68,14 +68,14 @@
                         
                         <button class="accordion">Vuelo <%=listaVuelo.get(i).getId_vuelo()%> </button>
                         <div class="panel">
-                            <p>Origen: <%=listaVuelo.get(i).getOrigen_vuelo() %></p> 
-                            <p>Destino: <%=listaVuelo.get(i).getDestino_vuelo()%></p>
+                            <p>Origen: <%=listaVuelo.get(i).getOrigenstr() %></p> 
+                            <p>Destino: <%=listaVuelo.get(i).getDestinostr()%></p>
                             <p>Fecha de Ida: <%=listaVuelo.get(i).getFechaida_vuelo()%></p>
                             <p>Fecha de regreso: <%=listaVuelo.get(i).getFecharegreso_vuelo()%></p>
                             <p>Hora de salida: <%=listaVuelo.get(i).getHorasalida_vuelo()%></p>
                             <p>Hora de regreso: <%=listaVuelo.get(i).getHoraregreso_vuelo()%></p>
-                            <p>Categoria: <%=listaVuelo.get(i).getId_categoria()%></p>
-                            <p>Aerolinea: <%=listaVuelo.get(i).getId_aerolinea()%></p>
+                            <p>Categoria: <%=listaVuelo.get(i).getCategoriastr()%></p>
+                            <p>Aerolinea: <%=listaVuelo.get(i).getAerolineastr()%></p>
                             <p>Precio: $ <%=listaVuelo.get(i).getPrecio_vuelo()%> </p>
                             <button onclick="return confirmar();" ><a href="reserva.jsp">Seleccionar</a></button>
                         </div>
