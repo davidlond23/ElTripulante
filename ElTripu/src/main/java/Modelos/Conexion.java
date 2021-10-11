@@ -16,9 +16,9 @@ public class Conexion {
     //ATRIBUTOS
     public Connection conn; 
     public String host = "localhost:3306"; 
-    public String dataBase = "eltripulante"; 
-    public String user = "root"; 
-    public String password = ""; 
+    public String dataBase = "c3s31grupo2"; 
+    public String user = "c3s31grupo2"; 
+    public String password = "wKAbE9vo"; 
     
     //METODOS
     public void conectar(){

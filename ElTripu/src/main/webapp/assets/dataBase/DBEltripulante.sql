@@ -115,3 +115,4 @@ REFERENCES ciudad (id_ciudad);
 ALTER TABLE vuelo
 ADD FOREIGN KEY (destino_vuelo)
 REFERENCES ciudad (id_ciudad);
+
